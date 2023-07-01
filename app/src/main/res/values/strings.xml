@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">THW Theorie</string>
+    <string name="main_menu_specific_theme">Ein konkretes Thema Lernen</string>
+    <string name="main_menu_example_test">Beispiel Test lernen</string>
+    <string name="main_menu_tooltip_specific_theme">Lerne nur Fragen aus einem der 10 Bereiche</string>
+    <string name="main_menu_tooltip_example_test">40 zufällige Fragen aus allen Themen</string>
 </resources>
