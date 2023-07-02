@@ -16,21 +16,22 @@ import kotlinx.serialization.json.Json
 
 
 class Theory : AppCompatActivity() {
-    private var theme:Int = 0; //Welches Thema gelernt werden soll
-    lateinit var model:TheorieLogik //Model
-    lateinit var question:Question //Aktuelle Frage aus dem Model
+    private var theme: Int = 0; //Welches Thema gelernt werden soll
+    lateinit var model: TheorieLogik //Model
+    lateinit var question: Question //Aktuelle Frage aus dem Model
+
     //UIElemente
-    lateinit var answerA:CheckBox
-    lateinit var answerB:CheckBox
-    lateinit var answerC:CheckBox
-    lateinit var questionText:TextView
+    lateinit var answerA: CheckBox
+    lateinit var answerB: CheckBox
+    lateinit var answerC: CheckBox
+    lateinit var questionText: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
 
-        val theme =  intent.getIntExtra("Theme",-1)
+        val theme = intent.getIntExtra("Theme", -1)
 
-        model = TheorieLogik(loadQuestionsData(),loadLearnState())
+        model = TheorieLogik(loadQuestionsData(), loadLearnState())
         model.loadDataFromOneChapter(theme)
         question = model.getLearnSetQuestion()
 
@@ -54,86 +55,87 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadLearnState(): HashMap<String, Int> {
-        return HashMap<String,Int>()
+        return HashMap<String, Int>()
     }
 
 
-    fun button(view: View){
-        var result =""
-        Log.i("THWTheroy","A " + answerA.isChecked.toString())
-        Log.i("THWTheroy","B " + answerB.isChecked.toString())
-        Log.i("THWTheroy","C " + answerC.isChecked.toString())
-        if(answerA.isChecked){
-            result +="A"
+    fun button(view: View) {
+        var result = ""
+        Log.i("THWTheroy", "A " + answerA.isChecked.toString())
+        Log.i("THWTheroy", "B " + answerB.isChecked.toString())
+        Log.i("THWTheroy", "C " + answerC.isChecked.toString())
+        if (answerA.isChecked) {
+            result += "A"
         }
 
-        if(answerB.isChecked){
-            result +="B"
+        if (answerB.isChecked) {
+            result += "B"
         }
 
-        if(answerC.isChecked){
-            result +="C"
+        if (answerC.isChecked) {
+            result += "C"
         }
 
-        if(model.checkAwnsers(result)){
-            Log.i("THWTheroy","Das war richtig :D!!!!")
+        if (model.checkAwnsers(result)) {
+            Log.i("THWTheroy", "Das war richtig :D!!!!")
             colourResults()
-        }else{
+        } else {
             colourResults()
         }
 
+    }
+
+    /*if(answerA.isChecked){
+        answerA.setBackgroundColor(Color.RED)
+    }else{
+        answerA.setBackgroundColor(Color.TRANSPARENT)
+    }*/
+    //Toast.makeText(this, "Cheked A:"+answerA.isChecked.toString(), Toast.LENGTH_LONG).show();
+    fun colourResults() {
+        //Was passiert wenn es falsch ist
+        if (answerA.isChecked == question.answerA.rightOrWrong) {
+            if (question.answerA.rightOrWrong) {
+                answerA.setBackgroundColor(Color.GREEN) //Wenn alles Richtig ist Grün
+            } else {
+                answerA.setBackgroundColor(Color.TRANSPARENT) //Wenn antwort wie gewüsncht nciht gewählt wurde
+            }
+        } else {
+            if (question.answerA.rightOrWrong) {
+                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht makriert sollte es aber sein
+            } else {
+                answerA.setBackgroundColor(Color.RED) //Antwort war falsch makiert
+            }
+        }
+
+        if (answerB.isChecked == question.answerB.rightOrWrong) {
+            if (question.answerB.rightOrWrong) {
+                answerB.setBackgroundColor(Color.GREEN)
+            } else {
+                answerB.setBackgroundColor(Color.TRANSPARENT)
+            }
+        } else {
+            if (question.answerB.rightOrWrong) {
+                answerB.setBackgroundColor(Color.GREEN)
+            } else {
+                answerB.setBackgroundColor(Color.RED)
+            }
+        }
+
+        if (answerC.isChecked == question.answerC.rightOrWrong) {
+            if (question.answerC.rightOrWrong) {
+                answerC.setBackgroundColor(Color.GREEN)
+            } else {
+                answerC.setBackgroundColor(Color.TRANSPARENT)
+            }
+        } else {
+            if (question.answerC.rightOrWrong) {
+                answerC.setBackgroundColor(Color.GREEN)
+            } else {
+                answerC.setBackgroundColor(Color.RED)
+            }
+        }
+    }
 }
-        /*if(answerA.isChecked){
-            answerA.setBackgroundColor(Color.RED)
-        }else{
-            answerA.setBackgroundColor(Color.TRANSPARENT)
-        }*/
-        //Toast.makeText(this, "Cheked A:"+answerA.isChecked.toString(), Toast.LENGTH_LONG).show();
-        fun colourResults(){
-            //Was passiert wenn es falsch ist
-            if(answerA.isChecked == question.answerA.rightOrWrong){
-                if(question.answerA.rightOrWrong){
-                    answerA.setBackgroundColor(Color.GREEN) //Wenn alles Richtig ist Grün
-                }else{
-                    answerA.setBackgroundColor(Color.TRANSPARENT) //Wenn antwort wie gewüsncht nciht gewählt wurde
-                }
-            }else{
-                if(question.answerA.rightOrWrong){
-                    answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht makriert sollte es aber sein
-                }else{
-                    answerA.setBackgroundColor(Color.RED) //Antwort war falsch makiert
-                }
-            }
-
-            if(answerB.isChecked == question.answerB.rightOrWrong){
-                if(question.answerB.rightOrWrong){
-                    answerB.setBackgroundColor(Color.GREEN)
-                }else{
-                    answerB.setBackgroundColor(Color.TRANSPARENT)
-                }
-            }else{
-                if(question.answerB.rightOrWrong){
-                    answerB.setBackgroundColor(Color.GREEN)
-                }else{
-                    answerB.setBackgroundColor(Color.RED)
-                }
-            }
-
-            if(answerC.isChecked == question.answerC.rightOrWrong){
-                if(question.answerC.rightOrWrong){
-                    answerC.setBackgroundColor(Color.GREEN)
-                }else{
-                    answerC.setBackgroundColor(Color.TRANSPARENT)
-                }
-            }else{
-                if(question.answerC.rightOrWrong){
-                    answerC.setBackgroundColor(Color.GREEN)
-                }else{
-                    answerC.setBackgroundColor(Color.RED)
-                }
-            }
-        }
-    }
 
 
 
