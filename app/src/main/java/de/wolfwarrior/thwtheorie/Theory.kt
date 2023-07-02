@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import de.wolfwarrior.thwtheorie.datastructures.testData
 import de.wolfwarrior.thwtheorie.logik.TheorieLogik
@@ -19,6 +18,7 @@ class Theory : AppCompatActivity() {
     private var theme: Int = 0; //Welches Thema gelernt werden soll
     lateinit var model: TheorieLogik //Model
     lateinit var question: Question //Aktuelle Frage aus dem Model
+    var correctnesCheck = false
 
     //UIElemente
     lateinit var answerA: CheckBox
@@ -36,16 +36,14 @@ class Theory : AppCompatActivity() {
         question = model.getLearnSetQuestion()
 
         questionText = findViewById<TextView>(R.id.theory_question_text)
-        questionText.text = question.question
 
         answerA = findViewById<CheckBox>(R.id.theroy_answer_a)
-        answerA.text = question.answerA.answer
 
         answerB = findViewById<CheckBox>(R.id.theroy_answer_b)
-        answerB.text = question.answerB.answer
 
         answerC = findViewById<CheckBox>(R.id.theroy_answer_c)
-        answerC.text = question.answerC.answer
+
+        nextQuestion()
 
     }
 
@@ -60,29 +58,12 @@ class Theory : AppCompatActivity() {
 
 
     fun button(view: View) {
-        var result = ""
-        Log.i("THWTheroy", "A " + answerA.isChecked.toString())
-        Log.i("THWTheroy", "B " + answerB.isChecked.toString())
-        Log.i("THWTheroy", "C " + answerC.isChecked.toString())
-        if (answerA.isChecked) {
-            result += "A"
+        if(correctnesCheck){
+            nextQuestion()
+        }else{
+            checkForCorrectness()
         }
-
-        if (answerB.isChecked) {
-            result += "B"
-        }
-
-        if (answerC.isChecked) {
-            result += "C"
-        }
-
-        if (model.checkAwnsers(result)) {
-            Log.i("THWTheroy", "Das war richtig :D!!!!")
-            colourResults()
-        } else {
-            colourResults()
-        }
-
+        correctnesCheck = !correctnesCheck
     }
 
     /*if(answerA.isChecked){
@@ -133,6 +114,48 @@ class Theory : AppCompatActivity() {
             } else {
                 answerC.setBackgroundColor(Color.RED)
             }
+        }
+    }
+
+    fun nextQuestion(){
+        question = model.getLearnSetQuestion() //Bekomme neue Frage
+        //Setze Bildschirm Zurück
+        answerA.text = question.answerA.answer.trimIndent()
+        answerB.text = question.answerB.answer.trimIndent()
+        answerC.text = question.answerC.answer.trimIndent()
+        questionText.text = question.question.trimIndent()
+
+        answerA.setBackgroundColor(Color.TRANSPARENT)
+        answerB.setBackgroundColor(Color.TRANSPARENT)
+        answerC.setBackgroundColor(Color.TRANSPARENT)
+
+        answerA.isChecked = false
+        answerB.isChecked = false
+        answerC.isChecked = false
+    }
+
+    fun checkForCorrectness(){
+        var result = ""
+        Log.i("THWTheroy", "A " + answerA.isChecked.toString())
+        Log.i("THWTheroy", "B " + answerB.isChecked.toString())
+        Log.i("THWTheroy", "C " + answerC.isChecked.toString())
+        if (answerA.isChecked) {
+            result += "A"
+        }
+
+        if (answerB.isChecked) {
+            result += "B"
+        }
+
+        if (answerC.isChecked) {
+            result += "C"
+        }
+
+        if (model.checkAwnsers(result)) {
+            Log.i("THWTheroy", "Das war richtig :D!!!!")
+            colourResults()
+        } else {
+            colourResults()
         }
     }
 }
