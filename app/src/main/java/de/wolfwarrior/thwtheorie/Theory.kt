@@ -81,7 +81,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerA.rightOrWrong) {
-                answerA.setBackgroundColor(Color.RED) //Antwort war nicht makriert sollte es aber sein
+                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht makriert sollte es aber sein
             } else {
                 answerA.setBackgroundColor(Color.RED) //Antwort war falsch makiert
             }
@@ -95,7 +95,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerB.rightOrWrong) {
-                answerB.setBackgroundColor(Color.RED)
+                answerB.setBackgroundColor(Color.GREEN)
             } else {
                 answerB.setBackgroundColor(Color.RED)
             }
@@ -109,7 +109,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerC.rightOrWrong) {
-                answerC.setBackgroundColor(Color.RED)
+                answerC.setBackgroundColor(Color.GREEN)
             } else {
                 answerC.setBackgroundColor(Color.RED)
             }
