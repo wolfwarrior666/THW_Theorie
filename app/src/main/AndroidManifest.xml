@@ -18,6 +18,9 @@
         android:theme="@style/Theme.THWTheorie"
         tools:targetApi="31">
         <activity
+            android:name=".TheroyTestLearnResults"
+            android:exported="false" />
+        <activity
             android:name=".ChooseTheme"
             android:exported="false" />
         <activity
