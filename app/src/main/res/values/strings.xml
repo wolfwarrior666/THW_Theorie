@@ -4,4 +4,15 @@
     <string name="main_menu_example_test">Beispiel Test lernen</string>
     <string name="main_menu_tooltip_specific_theme">Lerne nur Fragen aus einem der 10 Bereiche</string>
     <string name="main_menu_tooltip_example_test">40 zufällige Fragen aus allen Themen</string>
+
+    <string name="choose_theme_one">Lernabschnitt 1</string>
+    <string name="choose_theme_two">Lernabschnitt 2</string>
+    <string name="choose_theme_three">Lernabschnitt 3</string>
+    <string name="choose_theme_four">Lernabschnitt 4</string>
+    <string name="choose_theme_five">Lernabschnitt 5</string>
+    <string name="choose_theme_six">Lernabschnitt 6</string>
+    <string name="choose_theme_seven">Lernabschnitt 7</string>
+    <string name="choose_theme_eight">Lernabschnitt 8</string>
+    <string name="choose_theme_nine">Lernabschnitt 9</string>
+    <string name="choose_theme_ten">Lernabschnitt 10</string>
 </resources>

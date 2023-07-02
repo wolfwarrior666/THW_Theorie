@@ -19,61 +19,70 @@
             android:id="@+id/choose_theme_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="themeOn"
-            android:text="Lernabschnitt 1" />
+            android:onClick="themeOne"
+            android:text="@string/choose_theme_one" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="themeTwo"
+            android:text="@string/choose_theme_two" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="themeThree"
+            android:text="@string/choose_theme_three" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="themeFour"
+            android:text="@string/choose_theme_four" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="themeFive"
+            android:text="@string/choose_theme_five" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="themeSix"
+            android:text="@string/choose_theme_six" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="themeSeven"
+            android:text="@string/choose_theme_seven" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="themeEight"
+            android:text="@string/choose_theme_eight" />
 
         <Button
             android:id="@+id/button10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="themeNine"
+            android:text="@string/choose_theme_nine" />
 
         <Button
             android:id="@+id/button11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="themeTen"
+            android:text="@string/choose_theme_ten" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
