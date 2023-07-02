@@ -33,7 +33,6 @@ class Theory : AppCompatActivity() {
 
         model = TheorieLogik(loadQuestionsData(), loadLearnState())
         model.loadDataFromOneChapter(theme)
-        question = model.getLearnSetQuestion()
 
         questionText = findViewById<TextView>(R.id.theory_question_text)
 
@@ -82,7 +81,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerA.rightOrWrong) {
-                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht makriert sollte es aber sein
+                answerA.setBackgroundColor(Color.RED) //Antwort war nicht makriert sollte es aber sein
             } else {
                 answerA.setBackgroundColor(Color.RED) //Antwort war falsch makiert
             }
@@ -96,7 +95,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerB.rightOrWrong) {
-                answerB.setBackgroundColor(Color.GREEN)
+                answerB.setBackgroundColor(Color.RED)
             } else {
                 answerB.setBackgroundColor(Color.RED)
             }
@@ -110,7 +109,7 @@ class Theory : AppCompatActivity() {
             }
         } else {
             if (question.answerC.rightOrWrong) {
-                answerC.setBackgroundColor(Color.GREEN)
+                answerC.setBackgroundColor(Color.RED)
             } else {
                 answerC.setBackgroundColor(Color.RED)
             }
