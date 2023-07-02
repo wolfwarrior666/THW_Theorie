@@ -2,16 +2,15 @@ package de.wolfwarrior.thwtheorie.logik
 
 import Question
 import android.util.Log
-import java.io.File
 
 private var currentLearnSet = mutableListOf<Question>()
-private var currentIndex = 0;
+private var currentIndex = 0
 private lateinit var currentQuestion:Question
 
 class TheorieLogik (val questions:List<Question>, val learnState:HashMap<String,Int>) {
     fun loadDataFromOneChapter(chapterNumber: Int) {
         currentLearnSet.clear()
-        currentIndex = 0;
+        currentIndex = 0
         for (q in questions) {
             if (q.questionID.contains("$chapterNumber.")) {
                 currentLearnSet.add(q)
@@ -20,13 +19,13 @@ class TheorieLogik (val questions:List<Question>, val learnState:HashMap<String,
     }
 
     fun getLearnSetQuestion(): Question {
-        val currentQuestion = currentLearnSet[currentIndex];
+        currentQuestion = currentLearnSet[currentIndex]
         currentIndex++
-        return currentQuestion;
+        return currentQuestion
     }
 
     fun checkAwnsers(answer: String):Boolean {
-       var correct = true;
+       var correct = true
         if (answer.contains("A") == currentQuestion.answerA.rightOrWrong) {
             Log.i("THWTheroy", "Answer A is correct")
         }else{

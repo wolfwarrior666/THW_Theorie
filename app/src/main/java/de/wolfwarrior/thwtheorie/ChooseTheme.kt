@@ -5,14 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class ChooseTheme : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_choose_theme)
     }
 
-
-    fun showList(view:View){
-        startActivity(Intent(this, ChooseTheme::class.java))
+    fun themeOn(view:View){
+        var intent = Intent(this,Theory::class.java)
+        intent.putExtra("Theme",1)
+        startActivity(intent)
     }
 }

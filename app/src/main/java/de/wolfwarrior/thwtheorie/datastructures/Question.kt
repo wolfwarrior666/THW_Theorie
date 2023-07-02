@@ -12,6 +12,6 @@ data class Question(
 
 @Serializable
 data class Answer (
-        val awnser:String,
+        val answer:String,
         val rightOrWrong:Boolean,
         )

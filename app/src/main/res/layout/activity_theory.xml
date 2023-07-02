@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="button"
     android:textAlignment="center"
     tools:context=".Theory">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="282dp"
-        android:layout_height="507dp"
+        android:layout_width="350dp"
+        android:layout_height="428dp"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,36 +21,41 @@
         <TextView
             android:id="@+id/theory_question_text"
             android:layout_width="match_parent"
-            android:layout_height="147dp"
+            android:layout_height="159dp"
             android:text="TextView"
             android:textAlignment="gravity"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/theroy_answer_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox" />
+            android:text="CheckBox"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/theroy_answer_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox" />
+            android:text="CheckBox"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/theroy_answer_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox" />
+            android:text="CheckBox"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/theroy_function"
         android:layout_width="278dp"
         android:layout_height="51dp"
+        android:onClick="button"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
