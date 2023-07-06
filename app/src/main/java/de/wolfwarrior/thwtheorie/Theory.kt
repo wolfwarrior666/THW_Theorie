@@ -16,17 +16,17 @@ import kotlinx.serialization.json.Json
 
 
 class Theory : AppCompatActivity() {
-    private var theme: Int = 0; //Welches Thema gelernt werden soll
-    lateinit var model: TheorieLogik //Model
-    lateinit var question: Question //Aktuelle Frage aus dem Model
-    var correctnesCheck = false
+    private var theme: Int = 0 //Welches Thema gelernt werden soll
+    private lateinit var model: TheorieLogik //Model
+    private lateinit var question: Question //Aktuelle Frage aus dem Model
+    private var correctnesCheck = false
 
     //UIElemente
-    lateinit var answerA: CheckBox
-    lateinit var answerB: CheckBox
-    lateinit var answerC: CheckBox
-    lateinit var questionText: TextView
-    lateinit var button:Button
+    private lateinit var answerA: CheckBox
+    private lateinit var answerB: CheckBox
+    private lateinit var answerC: CheckBox
+    private lateinit var questionText: TextView
+    private lateinit var button:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
@@ -51,12 +51,11 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadQuestionsData(): List<Question> {
-        val tmp = Json.decodeFromString<List<Question>>(testData)
-        return tmp
+        return Json.decodeFromString(testData)
     }
 
     fun loadLearnState(): HashMap<String, Int> {
-        return HashMap<String, Int>()
+        return HashMap()
     }
 
 
