@@ -9,9 +9,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="357dp"
-        android:layout_height="607dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,8 +21,8 @@
 
         <TextView
             android:id="@+id/theory_question_text"
-            android:layout_width="match_parent"
-            android:layout_height="204dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="TextView"
             android:textAlignment="gravity"
             android:textSize="20sp" />
