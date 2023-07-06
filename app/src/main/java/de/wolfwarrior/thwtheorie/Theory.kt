@@ -1,6 +1,7 @@
 package de.wolfwarrior.thwtheorie
 
 import Question
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -169,7 +170,13 @@ class Theory : AppCompatActivity() {
     }
 
     fun showResults(){
+        val results = model.getResults()
+        var intent = Intent(this, TheroyTestLearnResults::class.java)
+        intent.putExtra("all",results["questions"])
+        intent.putExtra("right",results["right"])
+        intent.putExtra("wrong",results["wrong"])
 
+        startActivity(intent)
     }
 }
 
