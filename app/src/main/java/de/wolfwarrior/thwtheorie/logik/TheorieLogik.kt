@@ -70,7 +70,7 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
     }
 
     fun hasNextQuestion():Boolean{
-        if(currentIndex == currentLearnSet.size-1){
+        if(currentIndex == currentLearnSet.size){
             return false
         }
         return true
