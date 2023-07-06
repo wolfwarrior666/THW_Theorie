@@ -15,4 +15,9 @@
     <string name="choose_theme_eight">Lernabschnitt 8</string>
     <string name="choose_theme_nine">Lernabschnitt 9</string>
     <string name="choose_theme_ten">Lernabschnitt 10</string>
+
+
+
+    <string name="theroy_next">Nächste Frage</string>
+    <string name="theroy_check">Überprüfen</string>
 </resources>

@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ class Theory : AppCompatActivity() {
     lateinit var answerB: CheckBox
     lateinit var answerC: CheckBox
     lateinit var questionText: TextView
+    lateinit var button:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
@@ -41,6 +43,8 @@ class Theory : AppCompatActivity() {
         answerB = findViewById<CheckBox>(R.id.theroy_answer_b)
 
         answerC = findViewById<CheckBox>(R.id.theroy_answer_c)
+
+        button = findViewById<Button>(R.id.theroy_function)
 
         nextQuestion()
 
@@ -59,8 +63,11 @@ class Theory : AppCompatActivity() {
     fun button(view: View) {
         if(correctnesCheck){
             nextQuestion()
+            button.text = getString(R.string.theroy_check)
         }else{
             checkForCorrectness()
+            button.text = getString(R.string.theroy_next)
+
         }
         correctnesCheck = !correctnesCheck
     }
