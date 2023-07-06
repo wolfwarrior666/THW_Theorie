@@ -68,4 +68,11 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
         result["wrong"] = wrong
         return result
     }
+
+    fun hasNextQuestion():Boolean{
+        if(currentIndex == currentLearnSet.size-1){
+            return false
+        }
+        return true
+    }
 }

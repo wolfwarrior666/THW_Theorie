@@ -62,8 +62,12 @@ class Theory : AppCompatActivity() {
 
     fun button(view: View) {
         if(correctnesCheck){
-            nextQuestion()
-            button.text = getString(R.string.theroy_check)
+            if(model.hasNextQuestion()){
+                nextQuestion()
+                button.text = getString(R.string.theroy_check)
+            }else{
+                showResults() // Springt zur nächsten Activity to show the Results of the Learning success
+            }
         }else{
             checkForCorrectness()
             button.text = getString(R.string.theroy_next)
@@ -163,6 +167,10 @@ class Theory : AppCompatActivity() {
         } else {
             colourResults()
         }
+    }
+
+    fun showResults(){
+
     }
 }
 
