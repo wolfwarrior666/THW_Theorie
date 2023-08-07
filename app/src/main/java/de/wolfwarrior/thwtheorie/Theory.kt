@@ -37,15 +37,15 @@ class Theory : AppCompatActivity() {
         model = TheorieLogik(loadQuestionsData(), loadLearnState())
         model.loadDataFromOneChapter(theme)
 
-        questionText = findViewById<TextView>(R.id.theory_question_text)
+        questionText = findViewById(R.id.theory_question_text)
 
-        answerA = findViewById<CheckBox>(R.id.theroy_answer_a)
+        answerA = findViewById(R.id.theroy_answer_a)
 
-        answerB = findViewById<CheckBox>(R.id.theroy_answer_b)
+        answerB = findViewById(R.id.theroy_answer_b)
 
-        answerC = findViewById<CheckBox>(R.id.theroy_answer_c)
+        answerC = findViewById(R.id.theroy_answer_c)
 
-        button = findViewById<Button>(R.id.theroy_function)
+        button = findViewById(R.id.theroy_function)
 
         nextQuestion()
 
@@ -60,7 +60,8 @@ class Theory : AppCompatActivity() {
     }
 
 
-    fun button(view: View) {
+    @Suppress("UNUSED_PARAMETER")
+    fun button(view:View) {
         if(correctnesCheck){
             if(model.hasNextQuestion()){
                 nextQuestion()
@@ -171,10 +172,11 @@ class Theory : AppCompatActivity() {
 
     fun showResults(){
         val results = model.getResults()
-        var intent = Intent(this, TheroyTestLearnResults::class.java)
+        val intent = Intent(this, TheroyTestLearnResults::class.java)
         intent.putExtra("all",results["questions"])
         intent.putExtra("right",results["right"])
         intent.putExtra("wrong",results["wrong"])
+        intent.putExtra("ThemeID",theme)
 
         startActivity(intent)
     }
