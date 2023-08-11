@@ -16,6 +16,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
+@Suppress("MemberVisibilityCanBePrivate")
 class Theory : AppCompatActivity() {
     private var theme: Int = 0 //Welches Thema gelernt werden soll
     private lateinit var model: TheorieLogik //Model
