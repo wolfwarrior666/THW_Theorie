@@ -21,7 +21,7 @@ class Theory : AppCompatActivity() {
     private var theme: Int = 0 //Welches Thema gelernt werden soll
     private lateinit var model: TheorieLogik //Model
     private lateinit var question: Question //Aktuelle Frage aus dem Model
-    private var correctnesCheck = false
+    private var correctCheck = false
 
     //UIElemente
     private lateinit var answerA: CheckBox
@@ -63,7 +63,7 @@ class Theory : AppCompatActivity() {
 
     @Suppress("UNUSED_PARAMETER")
     fun button(view:View) {
-        if(correctnesCheck){
+        if(correctCheck){
             if(model.hasNextQuestion()){
                 nextQuestion()
                 button.text = getString(R.string.theroy_check)
@@ -75,7 +75,7 @@ class Theory : AppCompatActivity() {
             button.text = getString(R.string.theroy_next)
 
         }
-        correctnesCheck = !correctnesCheck
+        correctCheck = !correctCheck
     }
 
     /*if(answerA.isChecked){
@@ -83,20 +83,20 @@ class Theory : AppCompatActivity() {
     }else{
         answerA.setBackgroundColor(Color.TRANSPARENT)
     }*/
-    //Toast.makeText(this, "Cheked A:"+answerA.isChecked.toString(), Toast.LENGTH_LONG).show();
+    //Toast.makeText(this, "Checked A:"+answerA.isChecked.toString(), Toast.LENGTH_LONG).show();
     fun colourResults() {
         //Was passiert wenn es falsch ist
         if (answerA.isChecked == question.answerA.rightOrWrong) {
             if (question.answerA.rightOrWrong) {
                 answerA.setBackgroundColor(Color.GREEN) //Wenn alles Richtig ist Grün
             } else {
-                answerA.setBackgroundColor(Color.TRANSPARENT) //Wenn antwort wie gewüsncht nciht gewählt wurde
+                answerA.setBackgroundColor(Color.TRANSPARENT) //Wenn antwort wie gewünscht nicht gewählt wurde
             }
         } else {
             if (question.answerA.rightOrWrong) {
-                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht makriert sollte es aber sein
+                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht markiert sollte es aber sein
             } else {
-                answerA.setBackgroundColor(Color.RED) //Antwort war falsch makiert
+                answerA.setBackgroundColor(Color.RED) //Antwort war falsch markiert
             }
         }
 
@@ -148,9 +148,9 @@ class Theory : AppCompatActivity() {
 
     fun checkForCorrectness(){
         var result = ""
-        Log.i("THWTheroy", "A " + answerA.isChecked.toString())
-        Log.i("THWTheroy", "B " + answerB.isChecked.toString())
-        Log.i("THWTheroy", "C " + answerC.isChecked.toString())
+        Log.i("THWTheory", "A " + answerA.isChecked.toString())
+        Log.i("THWTheory", "B " + answerB.isChecked.toString())
+        Log.i("THWTheory", "C " + answerC.isChecked.toString())
         if (answerA.isChecked) {
             result += "A"
         }
@@ -163,8 +163,8 @@ class Theory : AppCompatActivity() {
             result += "C"
         }
 
-        if (model.checkAwnsers(result)) {
-            Log.i("THWTheroy", "Das war richtig :D!!!!")
+        if (model.checkAnswers(result)) {
+            Log.i("THWTheory", "Das war richtig :D!!!!")
             colourResults()
         } else {
             colourResults()

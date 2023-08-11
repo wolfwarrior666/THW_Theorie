@@ -28,22 +28,22 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
         return currentQuestion
     }
 
-    fun checkAwnsers(answer: String):Boolean {
+    fun checkAnswers(answer: String):Boolean {
        var correct = true
         if (answer.contains("A") == currentQuestion.answerA.rightOrWrong) {
-            Log.i("THWTheroy", "Answer A is correct")
+            Log.i("THWTheory", "Answer A is correct")
         }else{
             correct = false
         }
 
         if (answer.contains("B") == currentQuestion.answerB.rightOrWrong) {
-            Log.i("THWTheroy", "Answer B is correct")
+            Log.i("THWTheory", "Answer B is correct")
         }else{
             correct = false
         }
 
         if (answer.contains("C") == currentQuestion.answerC.rightOrWrong){
-            Log.i("THWTheroy", "Answer C is correct")
+            Log.i("THWTheory", "Answer C is correct")
         }else{
             correct = false
         }
