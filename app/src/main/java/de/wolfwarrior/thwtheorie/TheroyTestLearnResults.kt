@@ -17,10 +17,10 @@ class TheroyTestLearnResults : AppCompatActivity() {
         rightanswerd = intent.getIntExtra("right",-1)
         wronganswerd = intent.getIntExtra("wrong",-1)
         themeID = intent.getIntExtra("ThemeID",-1)
-        var btn = findViewById<TextView>(R.id.theroy_results_all)
+        val btn = findViewById<TextView>(R.id.theroy_results_all)
         btn.text = countofall.toString()
 
-        var text = "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $countofall Fragen beantwortet, davon waren $rightanswerd richtig und $wronganswerd falsch."
+        val text = "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $countofall Fragen beantwortet, davon waren $rightanswerd richtig und $wronganswerd falsch."
         btn.text = text
     }
 }
