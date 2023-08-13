@@ -3,7 +3,19 @@
     <style name="Base.Theme.THWTheorie" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!--   Primary Color -->
+        <item name="colorPrimary">@color/RAL5002</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/RAL5002</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">@color/RAL5002</item>
+
+
+        <item name="tint">@color/white</item>
+
     </style>
 
     <style name="Theme.THWTheorie" parent="Base.Theme.THWTheorie" />
+
+
 </resources>
