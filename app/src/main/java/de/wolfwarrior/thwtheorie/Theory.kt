@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import de.wolfwarrior.thwtheorie.datastructures.testData
 import de.wolfwarrior.thwtheorie.logik.TheorieLogik
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
