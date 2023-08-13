@@ -53,7 +53,11 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadQuestionsData(): List<Question> {
-        return Json.decodeFromString(testData)
+        val test =  resources.openRawResource(R.raw.questions_2022).bufferedReader().use { it.readText() }//R.raw.questions_2022
+        //println(test)
+        //return Json.decodeFromString(testData)
+        return Json.decodeFromString(test)
+
     }
 
     fun loadLearnState(): HashMap<String, Int> {
