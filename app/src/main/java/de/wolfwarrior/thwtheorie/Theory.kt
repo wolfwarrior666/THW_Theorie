@@ -27,7 +27,7 @@ class Theory : AppCompatActivity() {
     private lateinit var answerB: CheckBox
     private lateinit var answerC: CheckBox
     private lateinit var questionText: TextView
-    private lateinit var button:Button
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
@@ -52,9 +52,9 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadQuestionsData(): List<Question> {
-        val test =  resources.openRawResource(R.raw.questions_2022).bufferedReader().use { it.readText() }//R.raw.questions_2022
-        //println(test)
-        //return Json.decodeFromString(testData)
+        val test = resources.openRawResource(R.raw.questions_2022).bufferedReader()
+            .use { it.readText() }//R.raw.questions_2022
+
         return Json.decodeFromString(test)
 
     }
@@ -65,15 +65,15 @@ class Theory : AppCompatActivity() {
 
 
     @Suppress("UNUSED_PARAMETER")
-    fun button(view:View) {
-        if(correctCheck){
-            if(model.hasNextQuestion()){
+    fun button(view: View) {
+        if (correctCheck) {
+            if (model.hasNextQuestion()) {
                 nextQuestion()
                 button.text = getString(R.string.theroy_check)
-            }else{
+            } else {
                 showResults() // Springt zur nächsten Activity to show the Results of the Learning success
             }
-        }else{
+        } else {
             checkForCorrectness()
             button.text = getString(R.string.theroy_next)
 
@@ -81,12 +81,6 @@ class Theory : AppCompatActivity() {
         correctCheck = !correctCheck
     }
 
-    /*if(answerA.isChecked){
-        answerA.setBackgroundColor(Color.RED)
-    }else{
-        answerA.setBackgroundColor(Color.TRANSPARENT)
-    }*/
-    //Toast.makeText(this, "Checked A:"+answerA.isChecked.toString(), Toast.LENGTH_LONG).show();
     fun colourResults() {
         //Was passiert wenn es falsch ist
         if (answerA.isChecked == question.answerA.rightOrWrong) {
@@ -132,7 +126,7 @@ class Theory : AppCompatActivity() {
         }
     }
 
-    fun nextQuestion(){
+    fun nextQuestion() {
         question = model.getLearnSetQuestion() //Bekomme neue Frage
         //Setze Bildschirm Zurück
         answerA.text = question.answerA.answer.trimIndent()
@@ -149,7 +143,7 @@ class Theory : AppCompatActivity() {
         answerC.isChecked = false
     }
 
-    fun checkForCorrectness(){
+    fun checkForCorrectness() {
         var result = ""
         Log.i("THWTheory", "A " + answerA.isChecked.toString())
         Log.i("THWTheory", "B " + answerB.isChecked.toString())
@@ -174,15 +168,25 @@ class Theory : AppCompatActivity() {
         }
     }
 
-    fun showResults(){
+    fun showResults() {
         val results = model.getResults()
         val intent = Intent(this, TheroyTestLearnResults::class.java)
-        intent.putExtra("all",results["questions"])
-        intent.putExtra("right",results["right"])
-        intent.putExtra("wrong",results["wrong"])
-        intent.putExtra("ThemeID",theme)
+        intent.putExtra("all", results["questions"])
+        intent.putExtra("right", results["right"])
+        intent.putExtra("wrong", results["wrong"])
+        intent.putExtra("ThemeID", theme)
 
         startActivity(intent)
+    }
+
+
+    override fun onResume() {
+        //If there is no other Question to do the Activity will close
+        // immediately and will bring the user back to the LearnAbschnitt Activity
+        if(!model.hasNextQuestion()){
+            finish()
+        }
+        super.onResume()
     }
 }
 
