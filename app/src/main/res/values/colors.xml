@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="RAL5002">#00387A</color>
+    <color name="YellowGreen">#9FCC2E</color>
+    <color name="Ebony">#5A6650</color>
+    <color name="CalPolyGreen">#295135</color>
+    <color name="Britishracinggreen">#0E402D</color>
 </resources>

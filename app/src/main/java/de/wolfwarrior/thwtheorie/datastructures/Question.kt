@@ -5,13 +5,13 @@ import kotlinx.serialization.Serializable
 data class Question(
     val questionID:String,
     val question:String,
-    val awnserA: Awnser,
-    val awnserB: Awnser,
-    val awnserC: Awnser,
+    val answerA: Answer,
+    val answerB: Answer,
+    val answerC: Answer,
 )
 
 @Serializable
-data class Awnser (
-        val awnser:String,
+data class Answer (
+        val answer:String,
         val rightOrWrong:Boolean,
         )
