@@ -18,13 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.thw_main_toolbar, menu)
-        //return super.onCreateOptionsMenu(menu)
         return true
     }
 
 
     @Suppress("UNUSED_PARAMETER")
-    fun showList(view:View){
+    fun showList(view: View) {
         startActivity(Intent(this, ChooseTheme::class.java))
     }
 }
