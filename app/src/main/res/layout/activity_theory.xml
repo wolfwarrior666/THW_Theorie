@@ -16,6 +16,7 @@
         android:layout_marginEnd="25dp"
         android:orientation="vertical"
         android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,7 +25,7 @@
             android:id="@+id/theory_question_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/placeholder"
             android:textAlignment="gravity"
             android:textSize="20sp" />
 
@@ -33,15 +34,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
-            android:text="CheckBox"
-            android:textSize="20sp" />
+            android:text="@string/placeholder"
+            android:textSize="20sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <CheckBox
             android:id="@+id/theroy_answer_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
-            android:text="CheckBox"
+            android:text="@string/placeholder"
             android:textSize="20sp" />
 
         <CheckBox
@@ -49,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
-            android:text="CheckBox"
+            android:text="@string/placeholder"
             android:textSize="20sp" />
     </LinearLayout>
 
