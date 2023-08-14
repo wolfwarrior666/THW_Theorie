@@ -24,4 +24,7 @@
 
     <string name="main_toolbar_menu_item_one">GitHub</string>
     <string name="main_toolbar_menu_item_two">Über diese App</string>
+
+
+    <string name="placeholder">Platzhalter</string>
 </resources>
