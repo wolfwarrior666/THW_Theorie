@@ -1,11 +1,10 @@
 package de.wolfwarrior.thwtheorie
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @Suppress("UNUSED_PARAMETER")
     fun showList(view:View){
         startActivity(Intent(this, ChooseTheme::class.java))
     }
