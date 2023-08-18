@@ -17,7 +17,6 @@ import kotlinx.serialization.json.Json
 
 @Suppress("MemberVisibilityCanBePrivate")
 class Theory : AppCompatActivity() {
-    private var theme: Int = 0 //Welches Thema gelernt werden soll
     private lateinit var model: TheorieLogik //Model
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
@@ -58,7 +57,6 @@ class Theory : AppCompatActivity() {
         return Json.decodeFromString(test)
 
     }
-
     fun loadLearnState(): HashMap<String, Int> {
         return HashMap()
     }
@@ -174,7 +172,7 @@ class Theory : AppCompatActivity() {
         intent.putExtra("all", results["questions"])
         intent.putExtra("right", results["right"])
         intent.putExtra("wrong", results["wrong"])
-        intent.putExtra("ThemeID", theme)
+        intent.putExtra("ThemeID", model.getThemeID())
 
         startActivity(intent)
     }
