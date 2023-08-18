@@ -8,9 +8,11 @@ private var currentIndex = 0
 private lateinit var currentQuestion:Question
 private var wrong=0
 private var right=0
+private var themeID = -1
 
 class TheorieLogik (private val questions:List<Question>, private val learnState:HashMap<String,Int>) {
     fun loadDataFromOneChapter(chapterNumber: Int) {
+        themeID = chapterNumber
         currentLearnSet.clear()
         currentIndex = 0
         right = 0
@@ -74,5 +76,9 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
             return false
         }
         return true
+    }
+
+    fun getThemeID():Int{
+        return themeID
     }
 }
