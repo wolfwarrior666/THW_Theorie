@@ -21,9 +21,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     @Suppress("UNUSED_PARAMETER")
     fun showList(view: View) {
         startActivity(Intent(this, ChooseTheme::class.java))
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    fun startExam(view: View){
+        var intent = Intent(this,Theory::class.java)
+        intent.putExtra("Theme",-2)
+        startActivity(intent)
     }
 }

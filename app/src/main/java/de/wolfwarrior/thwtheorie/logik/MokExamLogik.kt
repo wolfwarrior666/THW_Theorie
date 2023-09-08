@@ -55,6 +55,7 @@ class MokExamLogik : TheorieLogikInterface {
 
                 if(!tmpIdList.contains(questions[index].questionID)){
                     currentLearnSet.add(questions[index])
+                    tmpIdList.add(questions[index].questionID)
                     check=false
                 }
             }

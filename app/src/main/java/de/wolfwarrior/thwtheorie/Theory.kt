@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import de.wolfwarrior.thwtheorie.logik.MokExamLogik
 import de.wolfwarrior.thwtheorie.logik.StdLogikInterface
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.decodeFromString
@@ -18,7 +19,7 @@ import kotlinx.serialization.json.Json
 
 @Suppress("MemberVisibilityCanBePrivate")
 class Theory : AppCompatActivity() {
-    private lateinit var model:TheorieLogikInterface //Model
+    private lateinit var model: TheorieLogikInterface //Model
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
 
@@ -33,10 +34,16 @@ class Theory : AppCompatActivity() {
         setContentView(R.layout.activity_theory)
 
         val theme = intent.getIntExtra("Theme", -1)
+        if (theme == -2) {
+            model = MokExamLogik()
+            model.initData(loadQuestionsData(), loadLearnState())
+            model.loadData(theme)
+        } else {
+            model = StdLogikInterface()
+            model.initData(loadQuestionsData(), loadLearnState()) //Init Data
+            model.loadData(theme)
+        }
 
-        model = StdLogikInterface()
-        model.initData(loadQuestionsData(), loadLearnState()) //Init Data
-        model.loadData(theme)
 
         questionText = findViewById(R.id.theory_question_text)
 
@@ -59,6 +66,7 @@ class Theory : AppCompatActivity() {
         return Json.decodeFromString(test)
 
     }
+
     fun loadLearnState(): HashMap<String, Int> {
         return HashMap()
     }
@@ -180,7 +188,7 @@ class Theory : AppCompatActivity() {
     override fun onResume() {
         //If there is no other Question to do the Activity will close
         // immediately and will bring the user back to the LearnAbschnitt Activity
-        if(!model.hasNextQuestion()){
+        if (!model.hasNextQuestion()) {
             finish()
         }
         super.onResume()
