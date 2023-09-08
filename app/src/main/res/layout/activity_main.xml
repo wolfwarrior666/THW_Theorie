@@ -28,6 +28,7 @@
             android:id="@+id/main_menu_example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="startExam"
             android:text="@string/main_menu_example_test"
             android:tooltipText="@string/main_menu_tooltip_example_test" />
 
