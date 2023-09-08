@@ -4,7 +4,6 @@ import Question
 import android.util.Log
 
 class StdLogikInterface : TheorieLogikInterface{
-
     private var currentLearnSet = mutableListOf<Question>()
     private var currentIndex = 0
     private lateinit var currentQuestion:Question
@@ -24,12 +23,9 @@ class StdLogikInterface : TheorieLogikInterface{
         return currentQuestion
     }
 
-    override fun getResults(): MutableMap<String, Int> {
-        val result = mutableMapOf<String, Int>()
-        result["questions"] = wrong + right
-        result["right"] = right
-        result["wrong"] = wrong
-        return result
+    override fun getResults(): String {
+        val questionCounts = wrong + right
+        return "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
     }
 
     override fun hasNextQuestion(): Boolean {

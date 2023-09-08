@@ -170,11 +170,8 @@ class Theory : AppCompatActivity() {
 
     fun showResults() {
         val results = model.getResults()
-        val intent = Intent(this, TheroyTestLearnResults::class.java)
-        intent.putExtra("all", results["questions"])
-        intent.putExtra("right", results["right"])
-        intent.putExtra("wrong", results["wrong"])
-        intent.putExtra("ThemeID", model.getThemeID())
+        val intent = Intent(this, TheoryTestLearnResults::class.java)
+        intent.putExtra("test", results)
 
         startActivity(intent)
     }
