@@ -2,7 +2,7 @@ package de.wolfwarrior.thwtheorie.logik
 
 import Question
 
-class MokExamLogik : TheorieLogikInterface {
+class MokExamLogik : TheorieLogikInterface,TmpNameClass() {
     override fun getLearnSetQuestion(): Question {
         TODO("Not yet implemented")
     }
@@ -15,7 +15,5 @@ class MokExamLogik : TheorieLogikInterface {
         TODO("Not yet implemented")
     }
 
-    override fun getThemeID(): Int {
-        TODO("Not yet implemented")
-    }
+
 }
