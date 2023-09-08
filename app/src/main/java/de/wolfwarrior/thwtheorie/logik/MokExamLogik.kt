@@ -19,10 +19,9 @@ class MokExamLogik : TheorieLogikInterface {
         TODO("Not yet implemented")
     }
 
-    override fun loadDataFromOneChapter(chapterNumber: Int) {
+    override fun loadData(chapterNumber: Int) {
         TODO("Not yet implemented")
     }
-
     override fun checkAnswers(answer: String): Boolean {
         TODO("Not yet implemented")
     }
