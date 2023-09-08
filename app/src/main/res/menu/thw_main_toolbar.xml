@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/showgithub"
-        android:title="showGitHub" />
+        android:title="GitHub" />
     <item
         android:id="@+id/aboutthisapp"
-        android:title="aboutThisApp" />
+        android:title="About this App" />
 
 </menu>
