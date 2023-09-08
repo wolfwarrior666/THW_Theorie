@@ -2,7 +2,11 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/main_toolbar_menu_item_one" />
-    <item android:title="@string/main_toolbar_menu_item_two" />
+    <item
+        android:id="@+id/showgithub"
+        android:title="showGitHub" />
+    <item
+        android:id="@+id/aboutthisapp"
+        android:title="aboutThisApp" />
 
 </menu>
