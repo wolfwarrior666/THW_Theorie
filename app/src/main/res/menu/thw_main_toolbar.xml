@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/showgithub"
-        android:title="GitHub" />
+        android:title="@string/main_toolbar_menu_item_one" />
     <item
         android:id="@+id/aboutthisapp"
-        android:title="About this App" />
+        android:title="@string/main_toolbar_menu_item_two" />
 
 </menu>
