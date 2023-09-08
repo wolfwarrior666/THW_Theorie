@@ -10,14 +10,15 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import de.wolfwarrior.thwtheorie.logik.TheorieLogik
+import de.wolfwarrior.thwtheorie.logik.StdLogikInterface
+import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
 @Suppress("MemberVisibilityCanBePrivate")
 class Theory : AppCompatActivity() {
-    private lateinit var model: TheorieLogik //Model
+    private lateinit var model:TheorieLogikInterface //Model
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
 
@@ -33,8 +34,9 @@ class Theory : AppCompatActivity() {
 
         val theme = intent.getIntExtra("Theme", -1)
 
-        model = TheorieLogik(loadQuestionsData(), loadLearnState())
-        model.loadDataFromOneChapter(theme)
+        model = StdLogikInterface()
+        model.initData(loadQuestionsData(), loadLearnState()) //Init Data
+        model.loadData(theme)
 
         questionText = findViewById(R.id.theory_question_text)
 

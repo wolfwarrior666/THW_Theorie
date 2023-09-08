@@ -3,16 +3,22 @@ package de.wolfwarrior.thwtheorie.logik
 import Question
 import android.util.Log
 
-interface TheorieLogikInterface{
-
+interface TheorieLogikInterface {
+    fun initData(questions:List<Question>, learnState:HashMap<String,Int>)
     fun getLearnSetQuestion(): Question
     fun getResults(): MutableMap<String, Int>
     fun hasNextQuestion():Boolean
-}
+
+    fun loadData(chapterNumber: Int)
+
+    fun checkAnswers(answer: String):Boolean
+
+    fun getThemeID():Int
+    }
 
 
 
-open class TmpNameClass {
+abstract class TmpNameClass {
 
     internal var currentLearnSet = mutableListOf<Question>()
     internal var currentIndex = 0
