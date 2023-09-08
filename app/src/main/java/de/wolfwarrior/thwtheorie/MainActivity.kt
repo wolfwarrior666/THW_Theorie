@@ -47,20 +47,20 @@ class MainActivity : AppCompatActivity() {
 
     @Suppress("UNUSED_PARAMETER")
     fun startExam(view: View){
-        var intent = Intent(this,Theory::class.java)
+        val intent = Intent(this,Theory::class.java)
         intent.putExtra("Theme",-2)
         startActivity(intent)
     }
 
 
-    fun aboutThisApp(){
+    private fun aboutThisApp(){
         val url = "https://github.com/wolfwarrior666/THW_Theorie#thw_theorie"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
     }
 
-    fun showGitHub(){
+    private fun showGitHub(){
         val url = "https://github.com/wolfwarrior666/THW_Theorie"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
