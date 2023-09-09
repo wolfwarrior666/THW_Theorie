@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
@@ -29,6 +30,7 @@ class Theory : AppCompatActivity() {
     private lateinit var answerC: CheckBox
     private lateinit var questionText: TextView
     private lateinit var button: Button
+    private lateinit var progressBar: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
@@ -54,6 +56,8 @@ class Theory : AppCompatActivity() {
         answerC = findViewById(R.id.theroy_answer_c)
 
         button = findViewById(R.id.theroy_function)
+
+        progressBar = findViewById(R.id.theory_statusbar)
 
         nextQuestion()
 
@@ -149,6 +153,15 @@ class Theory : AppCompatActivity() {
         answerA.isChecked = false
         answerB.isChecked = false
         answerC.isChecked = false
+
+        adjustProgressBar()
+
+    }
+
+
+    fun adjustProgressBar() {
+        val tmp = model.getPercentage()
+        progressBar.progress = tmp
     }
 
     fun checkForCorrectness() {
