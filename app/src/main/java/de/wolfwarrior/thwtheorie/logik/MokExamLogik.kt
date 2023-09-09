@@ -31,7 +31,7 @@ class MokExamLogik : TheorieLogikInterface {
     }
 
     override fun hasNextQuestion(): Boolean {
-        if(currentIndex == currentLearnSet.size){
+        if (currentIndex == currentLearnSet.size) {
             return false
         }
         return true
@@ -48,15 +48,15 @@ class MokExamLogik : TheorieLogikInterface {
         val tmpIdList = ArrayList<String>()
 
         val rnd = Random()
-        for(i in (0 until 40)){
+        for (i in (0 until 40)) {
             var check = true
-            while (check){
+            while (check) {
                 val index = rnd.nextInt(questions.size)
 
-                if(!tmpIdList.contains(questions[index].questionID)){
+                if (!tmpIdList.contains(questions[index].questionID)) {
                     currentLearnSet.add(questions[index])
                     tmpIdList.add(questions[index].questionID)
-                    check=false
+                    check = false
                 }
             }
         }
@@ -66,30 +66,31 @@ class MokExamLogik : TheorieLogikInterface {
         var correct = true
         if (answer.contains("A") == currentQuestion.answerA.rightOrWrong) {
             Log.i("THWTheory", "Answer A is correct")
-        }else{
+        } else {
             correct = false
         }
 
         if (answer.contains("B") == currentQuestion.answerB.rightOrWrong) {
             Log.i("THWTheory", "Answer B is correct")
-        }else{
+        } else {
             correct = false
         }
 
-        if (answer.contains("C") == currentQuestion.answerC.rightOrWrong){
+        if (answer.contains("C") == currentQuestion.answerC.rightOrWrong) {
             Log.i("THWTheory", "Answer C is correct")
-        }else{
+        } else {
             correct = false
         }
 
-        if (correct){
+        if (correct) {
             right++
-            if (learnState[currentQuestion.questionID] != null){
-                learnState[currentQuestion.questionID] = learnState[currentQuestion.questionID]!! + 1
-            }else{
+            if (learnState[currentQuestion.questionID] != null) {
+                learnState[currentQuestion.questionID] =
+                    learnState[currentQuestion.questionID]!! + 1
+            } else {
                 learnState[currentQuestion.questionID] = 1
             }
-        }else{
+        } else {
             wrong++
         }
         return correct
@@ -97,6 +98,11 @@ class MokExamLogik : TheorieLogikInterface {
 
     override fun getThemeID(): Int {
         return themeID
+    }
+
+    override fun getPercentage(): Int {
+        val a = ((currentIndex.toDouble()) / currentLearnSet.size.toDouble()) * 100.00
+        return a.toInt()
     }
 
 
