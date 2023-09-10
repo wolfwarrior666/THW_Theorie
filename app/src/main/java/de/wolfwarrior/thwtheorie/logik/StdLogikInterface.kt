@@ -68,16 +68,24 @@ class StdLogikInterface : TheorieLogikInterface {
             correct = false
         }
 
+
+        /*
+        This Parts Adds the ID of an Question to the learnstate DateStructure.
+        By this the Datastructure Counts the amount of following right checked amwsers.
+         */
         if (correct) {
             right++
-            if (learnState[currentQuestion.questionID] != null) {
-                learnState[currentQuestion.questionID] =
-                    learnState[currentQuestion.questionID]!! + 1
+            if (learnState[currentQuestion.questionID] != null) { //Check if the id allready exist
+                learnState[currentQuestion.questionID] = learnState[currentQuestion.questionID]!! + 1
             } else {
-                learnState[currentQuestion.questionID] = 1
+                learnState[currentQuestion.questionID] = 1 //If the idea does not exist then create it
             }
         } else {
             wrong++
+            if (learnState[currentQuestion.questionID] != null){ //Checks if the idea allready exist in the Structure
+                learnState[currentQuestion.questionID] = 0 //If Question was already correct awnserd but now wrong -> set counter to zero
+            }
+
         }
         return correct
     }
