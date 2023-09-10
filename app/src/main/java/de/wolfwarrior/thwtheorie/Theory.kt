@@ -1,6 +1,7 @@
 package de.wolfwarrior.thwtheorie
 
 import Question
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -72,7 +73,12 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadLearnState(): HashMap<String, Int> {
-        return HashMap()
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val learnState = sharedPreference.getString("learnstate","null")
+        if(learnState.equals("null")){
+            return HashMap<String,Int>()
+        }
+        return Json.decodeFromString(learnState.toString())
     }
 
 
@@ -193,7 +199,11 @@ class Theory : AppCompatActivity() {
         val results = model.getResults()
         val intent = Intent(this, TheoryTestLearnResults::class.java)
         intent.putExtra("test", results)
-
+        val tmp = model.getLearnState()
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var editor = sharedPreference.edit()
+        editor.putString("learnstate",tmp)
+        editor.commit()
         startActivity(intent)
     }
 

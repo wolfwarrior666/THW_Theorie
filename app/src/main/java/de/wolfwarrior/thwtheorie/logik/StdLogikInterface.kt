@@ -2,6 +2,8 @@ package de.wolfwarrior.thwtheorie.logik
 
 import Question
 import android.util.Log
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 class StdLogikInterface : TheorieLogikInterface {
     private var currentLearnSet = mutableListOf<Question>()
@@ -82,8 +84,8 @@ class StdLogikInterface : TheorieLogikInterface {
             }
         } else {
             wrong++
-            if (learnState[currentQuestion.questionID] != null){ //Checks if the idea allready exist in the Structure
-                learnState[currentQuestion.questionID] = 0 //If Question was already correct awnserd but now wrong -> set counter to zero
+            if (learnState[currentQuestion.questionID] != null){ //Checks if the id  already exist in the Structure
+                learnState[currentQuestion.questionID] = 0 //If Question was already correct answered but now wrong -> set counter to zero
             }
 
         }
@@ -97,6 +99,11 @@ class StdLogikInterface : TheorieLogikInterface {
     override fun getPercentage(): Int {
         val a = ((currentIndex.toDouble()) / currentLearnSet.size.toDouble()) * 100.00
         return a.toInt()
+    }
+
+    override fun getLearnState(): String {
+        return Json.encodeToString(learnState)
+
     }
 
 }

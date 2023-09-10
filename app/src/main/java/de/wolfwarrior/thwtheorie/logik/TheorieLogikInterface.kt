@@ -16,6 +16,7 @@ interface TheorieLogikInterface {
     fun getThemeID(): Int
 
     fun getPercentage(): Int
+    fun  getLearnState():String
 }
 
 
