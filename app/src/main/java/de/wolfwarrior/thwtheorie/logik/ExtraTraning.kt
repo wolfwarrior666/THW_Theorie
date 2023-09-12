@@ -29,6 +29,7 @@ class ExtraTraining: GeneralImplementation(), TheorieLogikInterface{
     }
 
     override fun getResults(): String {
-        return "Ende"
+        val questionCounts = wrong + right
+        return "Gratulation du hast versucht deine $questionCounts Fehler ausgebessert. Dabei warst du bei $right erfolgreich. Du musst noch $wrong ausbessern. "
     }
 }
