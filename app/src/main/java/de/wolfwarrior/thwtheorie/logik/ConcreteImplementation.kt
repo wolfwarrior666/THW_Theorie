@@ -6,14 +6,14 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 abstract class GeneralImplementation : TheorieLogikInterface {
-    var currentLearnSet = mutableListOf<Question>()
+    internal var currentLearnSet = mutableListOf<Question>()
     var currentIndex = 0
     private lateinit var currentQuestion: Question
     var wrong = 0
     var right = 0
     internal var themeID = -1
-    lateinit var questions: List<Question>
-    private lateinit var learnState: HashMap<String, Int>
+    internal lateinit var questions: List<Question>
+    internal lateinit var learnState: HashMap<String, Int>
     override fun initData(questions: List<Question>, learnState: HashMap<String, Int>) {
         this.questions = questions
         this.learnState = learnState

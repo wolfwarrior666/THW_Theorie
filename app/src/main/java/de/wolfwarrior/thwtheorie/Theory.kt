@@ -12,6 +12,7 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import de.wolfwarrior.thwtheorie.logik.ExtraTraining
 import de.wolfwarrior.thwtheorie.logik.Test2MokExam
 import de.wolfwarrior.thwtheorie.logik.Test2STD
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
@@ -24,6 +25,7 @@ class Theory : AppCompatActivity() {
     private lateinit var model: TheorieLogikInterface //Model
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
+    private var onCreated = false
 
     //UIElemente
     private lateinit var answerA: CheckBox
@@ -39,7 +41,8 @@ class Theory : AppCompatActivity() {
         val theme = intent.getIntExtra("Theme", -1)
 
         model = if (theme == -2) {
-            Test2MokExam()
+            //Test2MokExam()
+            ExtraTraining()
         } else {
             Test2STD()
         }
@@ -60,6 +63,7 @@ class Theory : AppCompatActivity() {
         progressBar = findViewById(R.id.theory_statusbar)
 
         nextQuestion()
+        onCreated = true
 
     }
 
@@ -210,9 +214,10 @@ class Theory : AppCompatActivity() {
     override fun onResume() {
         //If there is no other Question to do the Activity will close
         // immediately and will bring the user back to the LearnAbschnitt Activity
-        if (!model.hasNextQuestion()) {
+        if (!model.hasNextQuestion() && !onCreated ) {
             finish()
         }
+        onCreated = false
         super.onResume()
     }
 }
