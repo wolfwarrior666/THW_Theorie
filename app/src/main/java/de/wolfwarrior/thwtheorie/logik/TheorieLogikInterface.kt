@@ -1,7 +1,6 @@
 package de.wolfwarrior.thwtheorie.logik
 
 import Question
-import android.util.Log
 
 interface TheorieLogikInterface {
     fun initData(questions: List<Question>, learnState: HashMap<String, Int>)

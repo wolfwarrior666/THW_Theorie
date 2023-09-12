@@ -5,12 +5,12 @@ import android.util.Log
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
-abstract class GeneralImplementation : TheorieLogikInterface {
+abstract class GeneralImplementationK : TheorieLogikInterface {
     internal var currentLearnSet = mutableListOf<Question>()
-    var currentIndex = 0
+    var currentIndex: Int = 0
     private lateinit var currentQuestion: Question
-    var wrong = 0
-    var right = 0
+    var wrong: Int = 0
+    var right: Int = 0
     internal var themeID = -1
     internal lateinit var questions: List<Question>
     internal lateinit var learnState: HashMap<String, Int>
@@ -110,6 +110,7 @@ abstract class GeneralImplementation : TheorieLogikInterface {
     }
 
 }
+
 
 
 

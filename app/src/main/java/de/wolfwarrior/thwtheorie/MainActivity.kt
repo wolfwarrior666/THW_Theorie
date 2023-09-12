@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     fun startExtraTraining(view: View) {
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        var learnStateString = sharedPreference.getString("learnstate", "null")
+        val learnStateString = sharedPreference.getString("learnstate", "null")
 
         if (learnStateString.equals("null")) {
             Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity() {
             val learnState = Json.decodeFromString(learnStateString.toString()) as HashMap<String,Int>
             val tmpIDS = ArrayList<String>()
 
-            for (x in learnState) {
-                if (x.value == 0) {
-                    tmpIDS.add(x.key)
+            for ((key, value) in learnState) {
+                if (value == 0) {
+                    tmpIDS.add(key)
                 }
             }
 
