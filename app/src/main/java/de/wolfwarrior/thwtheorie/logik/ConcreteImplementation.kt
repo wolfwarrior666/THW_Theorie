@@ -2,39 +2,18 @@ package de.wolfwarrior.thwtheorie.logik
 
 import Question
 import android.util.Log
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
-
-class Test2STD : GeneralImplementation(), TheorieLogikInterface {
-    override fun getResults(): String {
-        val questionCounts = wrong + right
-        return "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
-    }
-
-    override fun loadData(chapterNumber: Int) {
-        themeID = chapterNumber
-        currentLearnSet.clear()
-        currentIndex = 0
-        right = 0
-        wrong = 0
-        for (q in questions) {
-            if (q.questionID.contains("$chapterNumber.")) {
-                currentLearnSet.add(q)
-            }
-        }
-    }
-}
-
-class StdLogikInterface : TheorieLogikInterface {
-    private var currentLearnSet = mutableListOf<Question>()
-    private var currentIndex = 0
+abstract class GeneralImplementation : TheorieLogikInterface {
+    internal var currentLearnSet = mutableListOf<Question>()
+    var currentIndex = 0
     private lateinit var currentQuestion: Question
-    private var wrong = 0
-    private var right = 0
-    private var themeID = -1
-    private lateinit var questions: List<Question>
-    private lateinit var learnState: HashMap<String, Int>
+    var wrong = 0
+    var right = 0
+    internal var themeID = -1
+    internal lateinit var questions: List<Question>
+    internal lateinit var learnState: HashMap<String, Int>
     override fun initData(questions: List<Question>, learnState: HashMap<String, Int>) {
         this.questions = questions
         this.learnState = learnState
@@ -99,14 +78,17 @@ class StdLogikInterface : TheorieLogikInterface {
         if (correct) {
             right++
             if (learnState[currentQuestion.questionID] != null) { //Check if the id allready exist
-                learnState[currentQuestion.questionID] = learnState[currentQuestion.questionID]!! + 1
+                learnState[currentQuestion.questionID] =
+                    learnState[currentQuestion.questionID]!! + 1
             } else {
-                learnState[currentQuestion.questionID] = 1 //If the idea does not exist then create it
+                learnState[currentQuestion.questionID] =
+                    1 //If the idea does not exist then create it
             }
         } else {
             wrong++
-            if (learnState[currentQuestion.questionID] != null){ //Checks if the id  already exist in the Structure
-                learnState[currentQuestion.questionID] = 0 //If Question was already correct answered but now wrong -> set counter to zero
+            if (learnState[currentQuestion.questionID] != null) { //Checks if the id  already exist in the Structure
+                learnState[currentQuestion.questionID] =
+                    0 //If Question was already correct answered but now wrong -> set counter to zero
             }
 
         }
@@ -128,3 +110,8 @@ class StdLogikInterface : TheorieLogikInterface {
     }
 
 }
+
+
+
+
+

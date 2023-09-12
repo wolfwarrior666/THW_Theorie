@@ -18,6 +18,9 @@
         android:theme="@style/Theme.THWTheorie"
         tools:targetApi="31">
         <activity
+            android:name=".PersonalizeNextRound"
+            android:exported="false" />
+        <activity
             android:name=".TheoryTestLearnResults"
             android:exported="false" />
         <activity
