@@ -33,18 +33,18 @@
             android:tooltipText="@string/main_menu_tooltip_example_test" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Personlized Traning" />
-
-        <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="startExtraTraining"
             android:text="@string/main_menu_learn_wrong_answered_questions"
             android:tooltipText="@string/main_menu_tooltip_learn_wrong_answered_questions" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personlized Traning" />
 
         <Button
             android:id="@+id/button12"

@@ -1,13 +1,17 @@
 package de.wolfwarrior.thwtheorie
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,10 +58,32 @@ class MainActivity : AppCompatActivity() {
 
 
     @Suppress("UNUSED_PARAMETER")
-    fun startExtraTraining(view: View){
-        val intent = Intent(this,Theory::class.java)
-        intent.putExtra("Theme",-3)
-        startActivity(intent)
+    fun startExtraTraining(view: View) {
+
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var learnStateString = sharedPreference.getString("learnstate", "null")
+
+        if (learnStateString.equals("null")) {
+            Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
+        } else {
+            val learnState = Json.decodeFromString(learnStateString.toString()) as HashMap<String,Int>
+            val tmpIDS = ArrayList<String>()
+
+            for (x in learnState) {
+                if (x.value == 0) {
+                    tmpIDS.add(x.key)
+                }
+            }
+
+            if (tmpIDS.isNotEmpty()) {
+                val intent = Intent(this, Theory::class.java)
+                intent.putExtra("Theme", -3)
+                startActivity(intent)
+            }
+            Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
 
