@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">THW Theorie</string>
 
-    <string name="main_menu_specific_theme">Ein konkretes Thema Lernen</string>
+    <string name="main_menu_specific_theme">Ein konkretes Thema lernen</string>
     <string name="main_menu_example_test">Beispiel Test lernen</string>
     <string name="main_menu_learn_wrong_answered_questions">Falsch Beantwortete Fragen lernen</string>
     <string name="main_menu_tooltip_specific_theme">Lerne nur Fragen aus einem der 10 Bereiche</string>
     <string name="main_menu_tooltip_example_test">40 zufällige Fragen aus allen Themen</string>
-    <string name="main_menu_tooltip_learn_wrong_answered_questions">Beantworte Fragen die du das letzte mal Falsch beantwortet hattest</string>
+    <string name="main_menu_tooltip_learn_wrong_answered_questions">Lerne Fragen die du das letzte mal Falsch beantwortet hattest</string>
     <string name="main_menu_toast_error">Sry offenbar hast du noch keine Fehler gemacht.</string>
 
 
