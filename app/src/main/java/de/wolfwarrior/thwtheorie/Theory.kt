@@ -40,11 +40,12 @@ class Theory : AppCompatActivity() {
 
         val theme = intent.getIntExtra("Theme", -1)
 
-        model = if (theme == -2) {
-            //Test2MokExam()
-            ExtraTraining()
-        } else {
-            Test2STD()
+        model = when (theme){
+            -2 -> Test2MokExam()
+            -3 -> ExtraTraining()
+            else -> {
+                Test2STD()
+            }
         }
         model.initData(loadQuestionsData(), loadLearnState()) //Init Data
         model.loadData(theme)
@@ -63,7 +64,8 @@ class Theory : AppCompatActivity() {
         progressBar = findViewById(R.id.theory_statusbar)
 
         nextQuestion()
-        onCreated = true
+
+        onCreated = true //BugFix
 
     }
 

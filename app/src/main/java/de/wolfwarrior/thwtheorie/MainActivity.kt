@@ -53,6 +53,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @Suppress("UNUSED_PARAMETER")
+    fun startExtraTraining(view: View){
+        val intent = Intent(this,Theory::class.java)
+        intent.putExtra("Theme",-3)
+        startActivity(intent)
+    }
+
+
     private fun aboutThisApp(){
         val url = "https://github.com/wolfwarrior666/THW_Theorie#thw_theorie"
         val i = Intent(Intent.ACTION_VIEW)
