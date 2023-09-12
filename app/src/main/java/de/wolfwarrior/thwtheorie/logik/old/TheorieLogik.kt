@@ -1,7 +1,8 @@
 package de.wolfwarrior.thwtheorie.logik.old
 
-import Question
+
 import android.util.Log
+import de.wolfwarrior.thwtheorie.datastructures.Question
 
 private var currentLearnSet = mutableListOf<Question>()
 private var currentIndex = 0

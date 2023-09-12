@@ -1,4 +1,4 @@
-
+package de.wolfwarrior.thwtheorie.datastructures
 import kotlinx.serialization.Serializable
 
 @Serializable
