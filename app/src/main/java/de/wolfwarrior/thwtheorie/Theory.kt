@@ -12,8 +12,8 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import de.wolfwarrior.thwtheorie.logik.MokExamLogik
-import de.wolfwarrior.thwtheorie.logik.StdLogikInterface
+import de.wolfwarrior.thwtheorie.logik.Test2MokExam
+import de.wolfwarrior.thwtheorie.logik.Test2STD
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -37,15 +37,14 @@ class Theory : AppCompatActivity() {
         setContentView(R.layout.activity_theory)
 
         val theme = intent.getIntExtra("Theme", -1)
-        if (theme == -2) {
-            model = MokExamLogik()
-            model.initData(loadQuestionsData(), loadLearnState())
-            model.loadData(theme)
+
+        model = if (theme == -2) {
+            Test2MokExam()
         } else {
-            model = StdLogikInterface()
-            model.initData(loadQuestionsData(), loadLearnState()) //Init Data
-            model.loadData(theme)
+            Test2STD()
         }
+        model.initData(loadQuestionsData(), loadLearnState()) //Init Data
+        model.loadData(theme)
 
 
         questionText = findViewById(R.id.theory_question_text)
@@ -76,7 +75,7 @@ class Theory : AppCompatActivity() {
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val learnState = sharedPreference.getString("learnstate","null")
         if(learnState.equals("null")){
-            return HashMap<String,Int>()
+            return HashMap()
         }
         return Json.decodeFromString(learnState.toString())
     }
@@ -201,7 +200,7 @@ class Theory : AppCompatActivity() {
         intent.putExtra("test", results)
         val tmp = model.getLearnState()
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        var editor = sharedPreference.edit()
+        val editor = sharedPreference.edit()
         editor.putString("learnstate",tmp)
         editor.commit()
         startActivity(intent)

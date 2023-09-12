@@ -6,6 +6,36 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.util.Random
 
+class Test2MokExam:GeneralImplementation(),TheorieLogikInterface{
+    override fun getResults(): String {
+        val questionCounts = wrong + right
+        return "Gratulation du den Test erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
+
+    }
+
+    override fun loadData(chapterNumber: Int) {
+        currentLearnSet.clear()
+        currentIndex = 0
+        right = 0
+        wrong = 0
+        val tmpIdList = ArrayList<String>()
+
+        val rnd = Random()
+        for (i in (0 until 40)) {
+            var check = true
+            while (check) {
+                val index = rnd.nextInt(questions.size)
+
+                if (!tmpIdList.contains(questions[index].questionID)) {
+                    currentLearnSet.add(questions[index])
+                    tmpIdList.add(questions[index].questionID)
+                    check = false
+                }
+            }
+        }
+    }
+
+}
 class MokExamLogik : TheorieLogikInterface {
     private var currentLearnSet = mutableListOf<Question>()
     private var currentIndex = 0
