@@ -1,6 +1,6 @@
 package de.wolfwarrior.thwtheorie
 
-import Question
+
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -12,9 +12,10 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import de.wolfwarrior.thwtheorie.logik.ExtraTraining
-import de.wolfwarrior.thwtheorie.logik.Test2MokExam
-import de.wolfwarrior.thwtheorie.logik.Test2STD
+import de.wolfwarrior.thwtheorie.datastructures.Question
+import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
+import de.wolfwarrior.thwtheorie.logik.MokExamLogik
+import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -40,11 +41,11 @@ class Theory : AppCompatActivity() {
 
         val theme = intent.getIntExtra("Theme", -1)
 
-        model = when (theme){
-            -2 -> Test2MokExam()
-            -3 -> ExtraTraining()
+        model = when (theme) {
+            -2 -> MokExamLogik()
+            -3 -> ExtraTrainingLogik()
             else -> {
-                Test2STD()
+                StdLogik()
             }
         }
         model.initData(loadQuestionsData(), loadLearnState()) //Init Data
@@ -78,9 +79,9 @@ class Theory : AppCompatActivity() {
     }
 
     fun loadLearnState(): HashMap<String, Int> {
-        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val learnState = sharedPreference.getString("learnstate","null")
-        if(learnState.equals("null")){
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val learnState = sharedPreference.getString("learnstate", "null")
+        if (learnState.equals("null")) {
             return HashMap()
         }
         return Json.decodeFromString(learnState.toString())
@@ -205,10 +206,10 @@ class Theory : AppCompatActivity() {
         val intent = Intent(this, TheoryTestLearnResults::class.java)
         intent.putExtra("test", results)
         val tmp = model.getLearnState()
-        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
-        editor.putString("learnstate",tmp)
-        editor.commit()
+        editor.putString("learnstate", tmp)
+        editor.apply()
         startActivity(intent)
     }
 
@@ -216,7 +217,7 @@ class Theory : AppCompatActivity() {
     override fun onResume() {
         //If there is no other Question to do the Activity will close
         // immediately and will bring the user back to the LearnAbschnitt Activity
-        if (!model.hasNextQuestion() && !onCreated ) {
+        if (!model.hasNextQuestion() && !onCreated) {
             finish()
         }
         onCreated = false

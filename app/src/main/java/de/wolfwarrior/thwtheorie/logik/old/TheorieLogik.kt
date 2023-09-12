@@ -1,16 +1,21 @@
-package de.wolfwarrior.thwtheorie.logik
+package de.wolfwarrior.thwtheorie.logik.old
 
-import Question
+
 import android.util.Log
+import de.wolfwarrior.thwtheorie.datastructures.Question
 
 private var currentLearnSet = mutableListOf<Question>()
 private var currentIndex = 0
-private lateinit var currentQuestion:Question
-private var wrong=0
-private var right=0
+private lateinit var currentQuestion: Question
+private var wrong = 0
+private var right = 0
 private var themeID = -1
 
-class TheorieLogik (private val questions:List<Question>, private val learnState:HashMap<String,Int>) {
+@Suppress("unused")
+class TheorieLogik(
+    private val questions: List<Question>,
+    private val learnState: HashMap<String, Int>
+) {
     fun loadDataFromOneChapter(chapterNumber: Int) {
         themeID = chapterNumber
         currentLearnSet.clear()
@@ -30,34 +35,35 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
         return currentQuestion
     }
 
-    fun checkAnswers(answer: String):Boolean {
-       var correct = true
+    fun checkAnswers(answer: String): Boolean {
+        var correct = true
         if (answer.contains("A") == currentQuestion.answerA.rightOrWrong) {
             Log.i("THWTheory", "Answer A is correct")
-        }else{
+        } else {
             correct = false
         }
 
         if (answer.contains("B") == currentQuestion.answerB.rightOrWrong) {
             Log.i("THWTheory", "Answer B is correct")
-        }else{
+        } else {
             correct = false
         }
 
-        if (answer.contains("C") == currentQuestion.answerC.rightOrWrong){
+        if (answer.contains("C") == currentQuestion.answerC.rightOrWrong) {
             Log.i("THWTheory", "Answer C is correct")
-        }else{
+        } else {
             correct = false
         }
 
-        if (correct){
+        if (correct) {
             right++
-            if (learnState[currentQuestion.questionID] != null){
-                learnState[currentQuestion.questionID] = learnState[currentQuestion.questionID]!! + 1
-            }else{
+            if (learnState[currentQuestion.questionID] != null) {
+                learnState[currentQuestion.questionID] =
+                    learnState[currentQuestion.questionID]!! + 1
+            } else {
                 learnState[currentQuestion.questionID] = 1
             }
-        }else{
+        } else {
             wrong++
         }
         return correct
@@ -71,14 +77,15 @@ class TheorieLogik (private val questions:List<Question>, private val learnState
         return result
     }
 
-    fun hasNextQuestion():Boolean{
-        if(currentIndex == currentLearnSet.size){
+    fun hasNextQuestion(): Boolean {
+        if (currentIndex == currentLearnSet.size) {
             return false
         }
         return true
     }
 
-    fun getThemeID():Int{
+    fun getThemeID(): Int {
         return themeID
     }
 }
+

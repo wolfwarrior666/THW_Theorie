@@ -1,12 +1,7 @@
 package de.wolfwarrior.thwtheorie.logik
 
-import Question
-import android.util.Log
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 
-
-class Test2STD : GeneralImplementation(), TheorieLogikInterface {
+class StdLogik : GeneralImplementationK(), TheorieLogikInterface {
     override fun getResults(): String {
         val questionCounts = wrong + right
         return "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
@@ -26,6 +21,7 @@ class Test2STD : GeneralImplementation(), TheorieLogikInterface {
     }
 }
 
+/*
 class StdLogikInterface : TheorieLogikInterface {
     private var currentLearnSet = mutableListOf<Question>()
     private var currentIndex = 0
@@ -128,3 +124,4 @@ class StdLogikInterface : TheorieLogikInterface {
     }
 
 }
+ */
