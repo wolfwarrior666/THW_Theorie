@@ -1,6 +1,6 @@
 package de.wolfwarrior.thwtheorie.logik
 
-import de.wolfwarrior.thwtheorie.datastructures.Question
+import Question
 
 
 interface TheorieLogikInterface {

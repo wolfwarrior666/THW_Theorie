@@ -44,13 +44,15 @@
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personlized Traning" />
+            android:text="Personlized Traning"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/button12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <com.google.android.material.appbar.MaterialToolbar
