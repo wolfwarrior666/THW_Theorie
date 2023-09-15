@@ -2,6 +2,7 @@ package de.wolfwarrior.thwtheorie
 
 
 import Question
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -17,7 +18,6 @@ import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
@@ -201,6 +201,7 @@ class Theory : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ApplySharedPref")
     fun showResults() {
         val results = model.getResults()
         val intent = Intent(this, TheoryTestLearnResults::class.java)
@@ -209,7 +210,7 @@ class Theory : AppCompatActivity() {
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         editor.putString("learnstate", tmp)
-        editor.apply()
+        editor.commit()
         startActivity(intent)
     }
 
