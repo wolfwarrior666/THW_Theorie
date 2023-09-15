@@ -1,8 +1,8 @@
 package de.wolfwarrior.thwtheorie.logik
 
 
+import Question
 import android.util.Log
-import de.wolfwarrior.thwtheorie.datastructures.Question
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 

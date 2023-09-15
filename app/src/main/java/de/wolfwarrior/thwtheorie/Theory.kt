@@ -1,6 +1,7 @@
 package de.wolfwarrior.thwtheorie
 
 
+import Question
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -12,7 +13,6 @@ import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import de.wolfwarrior.thwtheorie.datastructures.Question
 import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
 import de.wolfwarrior.thwtheorie.logik.StdLogik

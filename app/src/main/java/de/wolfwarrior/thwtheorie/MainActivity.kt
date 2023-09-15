@@ -87,14 +87,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun aboutThisApp(){
+    private fun aboutThisApp() {
         val url = "https://github.com/wolfwarrior666/THW_Theorie#thw_theorie"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
     }
 
-    private fun showGitHub(){
+    private fun showGitHub() {
         val url = "https://github.com/wolfwarrior666/THW_Theorie"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
