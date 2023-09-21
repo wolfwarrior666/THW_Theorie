@@ -9,12 +9,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
         android:paddingStart="5dp"
-        android:paddingEnd="25dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/theory_statusbar">
 
@@ -28,7 +29,7 @@
 
         <CheckBox
             android:id="@+id/theroy_answer_a"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:text="@string/placeholder"
@@ -37,7 +38,7 @@
 
         <CheckBox
             android:id="@+id/theroy_answer_b"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:text="@string/placeholder"
@@ -45,7 +46,7 @@
 
         <CheckBox
             android:id="@+id/theroy_answer_c"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:text="@string/placeholder"
