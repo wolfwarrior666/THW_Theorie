@@ -1,7 +1,7 @@
 [![Release](https://img.shields.io/github/v/release/wolfwarrior666/THW_Theorie?include_prereleases&style=plastic)]( https://github.com/THW_Theorie/THUMoodleWrapper/releases)
 
 # THW_Theorie
-Eine einfache App zum lernen der THW Theorie für die GA (GrundAusbildung)
+Eine einfache App zum lernen der THW Theorie für die GA (GrundAusbildung). Derzeitiger Fragenkatalog 2022 3.4.
 
 <div align="left">
 <img alt='Main Menue' src='./docs/MainMenue.png' height='450px'/></a>
