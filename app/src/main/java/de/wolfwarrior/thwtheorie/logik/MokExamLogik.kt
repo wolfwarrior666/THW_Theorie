@@ -17,7 +17,7 @@ class MokExamLogik : GeneralImplementationK(), TheorieLogikInterface {
         val tmpIdList = ArrayList<String>()
 
         val rnd = Random()
-        for (i in (0 until 10)) {
+        for (i in (0 until 40)) {
             var check = true
             while (check) {
                 val index = rnd.nextInt(questions.size)
