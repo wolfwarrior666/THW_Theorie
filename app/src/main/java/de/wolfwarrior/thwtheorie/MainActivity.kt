@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
@@ -35,10 +34,12 @@ class MainActivity : AppCompatActivity() {
                 showGitHub()
                 true
             }
+
             R.id.aboutthisapp -> {
                 aboutThisApp()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -50,9 +51,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun startExam(view: View){
-        val intent = Intent(this,Theory::class.java)
-        intent.putExtra("Theme",-2)
+    fun startExam(view: View) {
+        val intent = Intent(this, Theory::class.java)
+        intent.putExtra("Theme", -2)
         startActivity(intent)
     }
 
@@ -66,7 +67,8 @@ class MainActivity : AppCompatActivity() {
         if (learnStateString.equals("null")) {
             Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
         } else {
-            val learnState = Json.decodeFromString(learnStateString.toString()) as HashMap<String,Int>
+            val learnState =
+                Json.decodeFromString(learnStateString.toString()) as HashMap<String, Int>
             val tmpIDS = ArrayList<String>()
 
             for ((key, value) in learnState) {
@@ -79,11 +81,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, Theory::class.java)
                 intent.putExtra("Theme", -3)
                 startActivity(intent)
+            } else {
+                Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
             }
-            Toast.makeText(this, R.string.main_menu_toast_error, Toast.LENGTH_LONG).show()
         }
-
-
     }
 
 
