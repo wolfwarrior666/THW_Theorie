@@ -23,10 +23,18 @@ class PersonalizeNextRound : AppCompatActivity() {
 
     fun setRndMode(view:View){
         rndModeBool = rndMode.isChecked
-        Log.i("wolf", rndMode.toString())
+
+        if (rndModeBool){
+            examMode.isChecked = false
+        }
     }
 
     fun setExamMode(view:View){
+        examModeBool = examMode.isChecked
+
+        if (examModeBool){
+            rndMode.isChecked = false
+        }
 
     }
 }

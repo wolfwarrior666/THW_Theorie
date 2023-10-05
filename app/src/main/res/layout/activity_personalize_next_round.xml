@@ -14,6 +14,7 @@
         android:id="@+id/personalize_listview"
         android:layout_width="wrap_content"
         android:layout_height="586dp"
+        android:layout_marginTop="16dp"
         android:choiceMode="multipleChoice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +26,10 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,16 +37,17 @@
 
         <Switch
             android:id="@+id/activity_personalize_next_round_exammode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="setExamMode"
             android:text="@string/activity_personalize_next_round_examMode"
             android:tooltipText="@string/activity_personalize_next_round_tooltip_examMode" />
 
         <Switch
             android:id="@+id/activity_personalize_next_round_rndmode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="setRndMode"
             android:text="@string/activity_personalize_next_round_rndMode"

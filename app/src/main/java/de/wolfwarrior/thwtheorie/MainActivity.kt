@@ -57,6 +57,13 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    @Suppress("UNUSED_PARAMETER")
+    fun openPersonalizedLearnSettings(view: View) {
+        val intent = Intent(this, PersonalizeNextRound::class.java)
+        intent.putExtra("Theme", -2)
+        startActivity(intent)
+    }
+
 
     @Suppress("UNUSED_PARAMETER")
     fun startExtraTraining(view: View) {
