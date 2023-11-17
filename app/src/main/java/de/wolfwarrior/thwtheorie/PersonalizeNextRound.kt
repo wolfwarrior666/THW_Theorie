@@ -47,7 +47,5 @@ class PersonalizeNextRound : AppCompatActivity() {
         listView.adapter =
             ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, themeList)
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
-
-
     }
 }

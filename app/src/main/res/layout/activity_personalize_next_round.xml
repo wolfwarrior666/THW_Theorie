@@ -16,12 +16,10 @@
         android:layout_height="586dp"
         android:layout_marginTop="16dp"
         android:choiceMode="multipleChoice"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -52,5 +50,18 @@
             android:tooltipText="@string/activity_personalize_next_round_tooltip_rndMode" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="15dp"
+        android:paddingStart="24dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personalize_listview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
