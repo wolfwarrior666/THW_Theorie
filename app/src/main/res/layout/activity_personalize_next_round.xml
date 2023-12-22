@@ -12,7 +12,7 @@
 
     <ListView
         android:id="@+id/personalize_listview"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="586dp"
         android:layout_marginTop="16dp"
         android:choiceMode="multipleChoice"
@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="15dp"
+        android:onClick="startLearning"
         android:paddingStart="24dp"
         android:text="@string/activity_personalize_next_round_start"
         android:tooltipText="@string/activity_personalize_next_round_tooltip_start"
