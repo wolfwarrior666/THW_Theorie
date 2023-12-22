@@ -40,4 +40,8 @@
     <string name="activity_personalize_next_round_rndMode">Zufall</string>
     <string name="activity_personalize_next_round_tooltip_rndMode">Beantworte die Fragen in zufälliger Reihenfolge</string>
 
+
+    <string name="activity_personalize_next_round_start">Start</string>
+    <string name="activity_personalize_next_round_tooltip_start">Beginne zu Lernen</string>
+
 </resources>
