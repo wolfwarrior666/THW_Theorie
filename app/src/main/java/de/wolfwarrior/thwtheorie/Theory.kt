@@ -16,6 +16,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
+import de.wolfwarrior.thwtheorie.logik.PersonalizedExtraTraningExam
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.json.Json
@@ -27,6 +28,7 @@ class Theory : AppCompatActivity() {
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
     private var onCreated = false
+    private var  theme = -1
 
     //UIElemente
     private lateinit var answerA: CheckBox
@@ -39,11 +41,12 @@ class Theory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
 
-        val theme = intent.getIntExtra("Theme", -1)
+        theme = intent.getIntExtra("Theme", -1)
 
         model = when (theme) {
             -2 -> MokExamLogik()
             -3 -> ExtraTrainingLogik()
+            -4 -> personalizedNextRound(intent.getIntExtra("Chapters",-1))
             else -> {
                 StdLogik()
             }
@@ -67,6 +70,14 @@ class Theory : AppCompatActivity() {
         nextQuestion()
 
         onCreated = true //BugFix
+
+    }
+
+    fun personalizedNextRound(chapters:Int) : PersonalizedExtraTraningExam{
+        PersonalizedExtraTraningExam()
+        theme = chapters
+
+        return PersonalizedExtraTraningExam()
 
     }
 

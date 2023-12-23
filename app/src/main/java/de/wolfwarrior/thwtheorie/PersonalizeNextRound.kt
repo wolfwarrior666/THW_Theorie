@@ -1,6 +1,7 @@
 package de.wolfwarrior.thwtheorie
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.SparseBooleanArray
@@ -87,6 +88,14 @@ class PersonalizeNextRound : AppCompatActivity() {
         }
     }
 
+    @Suppress("MemberVisibilityCanBePrivate")
+    fun startActivity(chapters: Int, mode:Int) {
+        val intent = Intent(this, Theory::class.java)
+        intent.putExtra("Theme", mode)
+        intent.putExtra("Chapters",chapters)
+        startActivity(intent)
+    }
+
     @Suppress("UNUSED_PARAMETER")
     fun startLearning(view:View){
         if(examModeBool){
@@ -95,6 +104,7 @@ class PersonalizeNextRound : AppCompatActivity() {
                 tmp += i
             }
             Log.i("values",tmp)
+            startActivity(tmp.toInt(), -4)
         }
         //Three States
         /*
