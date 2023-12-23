@@ -15,9 +15,10 @@ import androidx.appcompat.app.AppCompatActivity
 
 class PersonalizeNextRound : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private lateinit var rndMode :Switch
+    private lateinit var rndMode: Switch
+
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private lateinit var examMode :Switch
+    private lateinit var examMode: Switch
 
 
     private val listOfSelectedItems = arrayListOf<Int>()
@@ -72,46 +73,56 @@ class PersonalizeNextRound : AppCompatActivity() {
         var selectedItems: String
         //val listOfSelectedItems = arrayListOf<Int>()
 
-        listView.onItemClickListener = OnItemClickListener { arg0, arg1, arg2, arg3 -> //List list = new ArrayList();
-            selectedItems = "Selected Items"
-            listOfSelectedItems.clear() // clear former variables
-            val a: SparseBooleanArray = listView.checkedItemPositions
-            for(i in themeList.indices){
-                if(a.get(i)){
-                    Log.i("ValuesDebug: ", i.toString())
-                    selectedItems = (selectedItems + ","
-                            + listView.adapter.getItem(i) as String)
-                    listOfSelectedItems.add(i+1)
+        listView.onItemClickListener =
+            OnItemClickListener { arg0, arg1, arg2, arg3 -> //List list = new ArrayList();
+                selectedItems = "Selected Items"
+                listOfSelectedItems.clear() // clear former variables
+                val a: SparseBooleanArray = listView.checkedItemPositions
+                for (i in themeList.indices) {
+                    if (a.get(i)) {
+                        Log.i("ValuesDebug: ", i.toString())
+                        selectedItems = (selectedItems + ","
+                                + listView.adapter.getItem(i) as String)
+                        listOfSelectedItems.add(i + 1)
+                    }
                 }
+                Log.v("values", selectedItems)
             }
-            Log.v("values", selectedItems)
-        }
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
-    fun startActivity(chapters: Int, mode:Int) {
+    fun startActivity(chapters: Int, mode: Int) {
         val intent = Intent(this, Theory::class.java)
         intent.putExtra("Theme", mode)
-        intent.putExtra("Chapters",chapters)
+        intent.putExtra("Chapters", chapters)
         startActivity(intent)
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun startLearning(view:View){
-        if(examModeBool){
-            var tmp = ""
-            for(i in listOfSelectedItems){
-                tmp += i
-            }
-            Log.i("values",tmp)
-            startActivity(tmp.toInt(), -4)
+    fun startLearning(view: View) {
+
+        var tmp = ""
+        for (i in listOfSelectedItems) {
+            tmp += i
         }
-        //Three States
-        /*
-        *  0 = Learning normal
-        *  1 = Zufall (all questions)
-        *  3 = exam random 40 questions
-        * */
+        if (tmp != "") {
+
+            if (examModeBool) {
+                Log.i("values", tmp)
+                startActivity(tmp.toInt(), -4)
+            }
+
+            if (rndModeBool) {
+                startActivity(tmp.toInt(), -5)
+            }
+
+            //Three States
+            /*
+            *  0 = Learning normal
+            *  1 = Zufall (all questions)
+            *  3 = exam random 40 questions
+            * */
+        }
     }
 
 

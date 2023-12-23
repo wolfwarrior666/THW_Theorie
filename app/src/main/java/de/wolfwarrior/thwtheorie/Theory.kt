@@ -19,6 +19,7 @@ import de.wolfwarrior.thwtheorie.logik.MokExamLogik
 import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningExam
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningRnd
 import kotlinx.serialization.json.Json
 
 
@@ -28,7 +29,7 @@ class Theory : AppCompatActivity() {
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
     private var onCreated = false
-    private var  theme = -1
+    private var theme = -1
 
     //UIElemente
     private lateinit var answerA: CheckBox
@@ -46,7 +47,8 @@ class Theory : AppCompatActivity() {
         model = when (theme) {
             -2 -> MokExamLogik()
             -3 -> ExtraTrainingLogik()
-            -4 -> personalizedNextRound(intent.getIntExtra("Chapters",-1))
+            -4 -> personalizedNextRoundExam(intent.getIntExtra("Chapters", -1))
+            -5 -> personalizedNextRoundRnd(intent.getIntExtra("Chapters", -1))
             else -> {
                 StdLogik()
             }
@@ -73,11 +75,17 @@ class Theory : AppCompatActivity() {
 
     }
 
-    fun personalizedNextRound(chapters:Int) : PersonalizedExtraTraningExam {
-        PersonalizedExtraTraningExam()
+    fun personalizedNextRoundExam(chapters: Int): PersonalizedExtraTraningExam {
         theme = chapters
 
         return PersonalizedExtraTraningExam()
+
+    }
+
+    fun personalizedNextRoundRnd(chapters: Int): PersonalizedExtraTraningRnd {
+        theme = chapters
+
+        return PersonalizedExtraTraningRnd()
 
     }
 
