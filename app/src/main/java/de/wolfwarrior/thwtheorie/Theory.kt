@@ -16,7 +16,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
-import de.wolfwarrior.thwtheorie.logik.PersonalizedExtraTraningExam
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningExam
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import kotlinx.serialization.json.Json
@@ -73,7 +73,7 @@ class Theory : AppCompatActivity() {
 
     }
 
-    fun personalizedNextRound(chapters:Int) : PersonalizedExtraTraningExam{
+    fun personalizedNextRound(chapters:Int) : PersonalizedExtraTraningExam {
         PersonalizedExtraTraningExam()
         theme = chapters
 
