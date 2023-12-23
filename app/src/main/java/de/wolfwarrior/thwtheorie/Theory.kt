@@ -20,6 +20,7 @@ import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTranin
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningRnd
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningStd
 import kotlinx.serialization.json.Json
 
 
@@ -49,6 +50,7 @@ class Theory : AppCompatActivity() {
             -3 -> ExtraTrainingLogik()
             -4 -> personalizedNextRoundExam(intent.getIntExtra("Chapters", -1))
             -5 -> personalizedNextRoundRnd(intent.getIntExtra("Chapters", -1))
+            -6 -> personalizedNextRoundStd(intent.getIntExtra("Chapters", -1))
             else -> {
                 StdLogik()
             }
@@ -86,6 +88,13 @@ class Theory : AppCompatActivity() {
         theme = chapters
 
         return PersonalizedExtraTraningRnd()
+
+    }
+
+    fun personalizedNextRoundStd(chapters: Int): PersonalizedExtraTraningStd {
+        theme = chapters
+
+        return PersonalizedExtraTraningStd()
 
     }
 

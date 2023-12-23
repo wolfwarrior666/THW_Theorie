@@ -10,6 +10,7 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -116,12 +117,19 @@ class PersonalizeNextRound : AppCompatActivity() {
                 startActivity(tmp.toInt(), -5)
             }
 
+
+            if(!rndModeBool && !examModeBool){
+                startActivity(tmp.toInt(),-6)
+            }
+
             //Three States
             /*
-            *  0 = Learning normal
-            *  1 = Zufall (all questions)
-            *  3 = exam random 40 questions
+            *  -6 = Learning normal
+            *  -5 = Zufall (all questions)
+            *  -4 = exam random 40 questions
             * */
+        }else{
+            Toast.makeText(this,"Du musst zuerst Kapitel zum Lernen auswählen",Toast.LENGTH_LONG).show()
         }
     }
 
