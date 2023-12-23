@@ -38,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:paddingEnd="20dp"
             android:text="@string/activity_personalize_next_round_examMode"
             android:tooltipText="@string/activity_personalize_next_round_tooltip_examMode" />
 
@@ -46,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:paddingStart="20dp"
             android:text="@string/activity_personalize_next_round_rndMode"
             android:tooltipText="@string/activity_personalize_next_round_tooltip_rndMode" />
 
