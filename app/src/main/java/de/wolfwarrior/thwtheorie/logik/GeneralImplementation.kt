@@ -87,11 +87,7 @@ abstract class GeneralImplementationK : TheorieLogikInterface {
             }
         } else {
             wrong++
-            if (learnState[currentQuestion.questionID] != null) { //Checks if the id  already exist in the Structure
-                learnState[currentQuestion.questionID] =
-                    0 //If Question was already correct answered but now wrong -> set counter to zero
-            }
-
+                learnState[currentQuestion.questionID] = 0
         }
         return correct
     }

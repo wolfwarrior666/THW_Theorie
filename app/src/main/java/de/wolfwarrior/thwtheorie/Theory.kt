@@ -16,8 +16,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import de.wolfwarrior.thwtheorie.logik.ExtraTrainingLogik
 import de.wolfwarrior.thwtheorie.logik.MokExamLogik
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningExam
 import de.wolfwarrior.thwtheorie.logik.StdLogik
 import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningRnd
+import de.wolfwarrior.thwtheorie.logik.personalizedRound.PersonalizedExtraTraningStd
 import kotlinx.serialization.json.Json
 
 
@@ -27,6 +30,7 @@ class Theory : AppCompatActivity() {
     private lateinit var question: Question //Aktuelle Frage aus dem Model
     private var correctCheck = false
     private var onCreated = false
+    private var theme = -1
 
     //UIElemente
     private lateinit var answerA: CheckBox
@@ -39,11 +43,14 @@ class Theory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
 
-        val theme = intent.getIntExtra("Theme", -1)
+        theme = intent.getIntExtra("Theme", -1)
 
         model = when (theme) {
             -2 -> MokExamLogik()
             -3 -> ExtraTrainingLogik()
+            -4 -> personalizedNextRoundExam(intent.getIntExtra("Chapters", -1))
+            -5 -> personalizedNextRoundRnd(intent.getIntExtra("Chapters", -1))
+            -6 -> personalizedNextRoundStd(intent.getIntExtra("Chapters", -1))
             else -> {
                 StdLogik()
             }
@@ -67,6 +74,27 @@ class Theory : AppCompatActivity() {
         nextQuestion()
 
         onCreated = true //BugFix
+
+    }
+
+    fun personalizedNextRoundExam(chapters: Int): PersonalizedExtraTraningExam {
+        theme = chapters
+
+        return PersonalizedExtraTraningExam()
+
+    }
+
+    fun personalizedNextRoundRnd(chapters: Int): PersonalizedExtraTraningRnd {
+        theme = chapters
+
+        return PersonalizedExtraTraningRnd()
+
+    }
+
+    fun personalizedNextRoundStd(chapters: Int): PersonalizedExtraTraningStd {
+        theme = chapters
+
+        return PersonalizedExtraTraningStd()
 
     }
 

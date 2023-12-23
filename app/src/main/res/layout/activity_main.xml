@@ -44,8 +44,10 @@
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personlized Traning"
-            android:visibility="invisible" />
+            android:onClick="openPersonalizedLearnSettings"
+            android:text="@string/main_menu_personalize"
+            android:tooltipText="@string/main_menu_tooltip_personalize"
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/button12"
