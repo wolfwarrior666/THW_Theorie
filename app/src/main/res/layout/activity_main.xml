@@ -45,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openPersonalizedLearnSettings"
-            android:text="Personlized Traning"
+            android:text="@string/main_menu_personalize"
+            android:tooltipText="@string/main_menu_tooltip_personalize"
             android:visibility="visible" />
 
         <Button
