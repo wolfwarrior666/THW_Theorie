@@ -24,8 +24,10 @@ class PersonalizedExtraTraningRnd : GeneralImplementationK(), TheorieLogikInterf
         }
 
         //Collect all other chapters
-        for (i in (chapters.indices)) {
-            chaptersList.add(i)
+        val chaptersCharArry = chapters.toCharArray();
+        //Collect all other chapters
+        for(i in chaptersCharArry){
+            chaptersList.add(i.digitToInt())
         }
 
 
@@ -55,7 +57,7 @@ class PersonalizedExtraTraningRnd : GeneralImplementationK(), TheorieLogikInterf
         var tmpId: Int
 
         val rnd = Random()
-        while (tmpQuestionList.isEmpty()) {
+        while (tmpQuestionList.isNotEmpty()) {
             tmpId = rnd.nextInt(tmpQuestionList.size)
             currentLearnSet.add(tmpQuestionList[tmpId])
             tmpQuestionList.removeAt(tmpId)

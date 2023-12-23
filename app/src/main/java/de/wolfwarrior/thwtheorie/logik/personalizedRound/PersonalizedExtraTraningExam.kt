@@ -24,9 +24,11 @@ class PersonalizedExtraTraningExam : GeneralImplementationK(), TheorieLogikInter
             chapters.replace("10","")
         }
 
+
+        val chaptersCharArry = chapters.toCharArray();
         //Collect all other chapters
-        for(i in (chapters.indices)){
-            chaptersList.add(i)
+        for(i in chaptersCharArry){
+            chaptersList.add(i.digitToInt())
         }
 
 
@@ -52,17 +54,25 @@ class PersonalizedExtraTraningExam : GeneralImplementationK(), TheorieLogikInter
         }
 
         //List of all usableQuestion now choose 40 of them
+        var questionCount = 40;
+
+        //Check if there are not as many Question as needed
+        if(tmpQuestionList.size < 40){
+            questionCount = tmpQuestionList.size
+        }
+
+
 
         val tmpIdList = ArrayList<String>()
 
         val rnd = Random()
-        for (i in (0 until 40)) {
+        for (i in (0 until questionCount)) {
             var check = true
             while (check) {
                 val index = rnd.nextInt(tmpQuestionList.size)
 
                 if (!tmpIdList.contains(tmpQuestionList[index].questionID)) {
-                    currentLearnSet.add(questions[index])
+                    currentLearnSet.add(tmpQuestionList[index])
                     tmpIdList.add(tmpQuestionList[index].questionID)
                     check = false
                 }
