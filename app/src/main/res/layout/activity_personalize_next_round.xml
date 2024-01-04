@@ -8,14 +8,37 @@
     android:paddingTop="5dp"
     android:paddingEnd="5dp"
     android:paddingRight="5dp"
-    tools:context=".PersonalizeNextRound">
+    tools:context=".PersonalizeNextRound"
+    android:background="@color/RAL5002">
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:backgroundTint="@color/lightgrey"
+        android:onClick="startLearning"
+        android:paddingStart="24dp"
+        android:text="@string/activity_personalize_next_round_start"
+        android:textColor="@color/text"
+        android:textSize="20sp"
+        android:tooltipText="@string/activity_personalize_next_round_tooltip_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personalize_listview"
+        app:layout_constraintVertical_bias="0.2" />
 
     <ListView
         android:id="@+id/personalize_listview"
         android:layout_width="0dp"
         android:layout_height="586dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_checkbox"
         android:choiceMode="multipleChoice"
+        android:textColor="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +51,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_checkbox"
         android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,6 +66,8 @@
             android:layout_weight="1"
             android:paddingEnd="20dp"
             android:text="@string/activity_personalize_next_round_examMode"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/activity_personalize_next_round_tooltip_examMode" />
 
         <Switch
@@ -49,23 +77,10 @@
             android:layout_weight="1"
             android:paddingStart="20dp"
             android:text="@string/activity_personalize_next_round_rndMode"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/activity_personalize_next_round_tooltip_rndMode" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="startLearning"
-        android:paddingStart="24dp"
-        android:text="@string/activity_personalize_next_round_start"
-        android:tooltipText="@string/activity_personalize_next_round_tooltip_start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personalize_listview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
