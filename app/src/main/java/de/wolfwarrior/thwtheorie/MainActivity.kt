@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = findViewById<MaterialToolbar>(R.id.main_menu_toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
