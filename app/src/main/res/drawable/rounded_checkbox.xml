@@ -2,5 +2,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <corners android:radius="30dp" /> <!-- Ändere den Radius nach Bedarf -->
-    <solid android:color="@color/grey" /> <!-- Hintergrundfarbe des Buttons -->
+    <solid android:color="@color/lightgrey" /> <!-- Hintergrundfarbe des Buttons -->
 </shape>
