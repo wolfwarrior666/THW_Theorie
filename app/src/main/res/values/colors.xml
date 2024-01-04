@@ -2,11 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#FF0000</color>
+    <!-- <color name="red">#FF0000</color> -->
+    <color name="red">#ED3B42</color>
     <color name="RAL5002">#00387A</color>
-    <color name="YellowGreen">#9FCC2E</color>
+    <!-- <color name="YellowGreen">#9FCC2E</color> -->
+    <color name="YellowGreen">#92DDAA</color>
     <color name="Ebony">#5A6650</color>
     <color name="CalPolyGreen">#295135</color>
     <color name="Britishracinggreen">#0E402D</color>
-    <color name="grey">#9E9E9E</color>
+    <!-- <color name="grey">#9E9E9E</color> -->
+    <color name="grey">#CBD2D9</color>
 </resources>
