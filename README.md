@@ -4,7 +4,7 @@
 Eine einfache App zum lernen der THW Theorie für die GA (GrundAusbildung). Derzeitiger Fragenkatalog 2022 3.4.
 
 <div align="left">
-<img alt='Main Menue' src='./docs/Main_menue.png' height='450px'/></a>
+<img alt='Main Menue' src='./docs/Main_menu.png' height='450px'/></a>
 <img alt='All is Correct is correct' src='./docs/question_1.png' height='450px'/></a>
 <img alt='Nothing Selected' src='./docs/question_2.png' height='450px'/></a>
 <img alt='Failure and correct' src='./docs/question_3.png' height='450px'/></a>
