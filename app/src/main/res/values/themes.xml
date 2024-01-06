@@ -11,7 +11,8 @@
         <item name="colorAccent">@color/RAL5002</item>
 
 
-        <item name="tint">@color/white</item>
+        <!-- <item name="tint">@color/white</item> -->
+        <item name="tint">@color/text</item>
 
     </style>
 

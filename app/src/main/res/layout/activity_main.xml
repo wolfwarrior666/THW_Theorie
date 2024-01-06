@@ -4,14 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/RAL5002"
     tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/main_menu_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_checkbox"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="234dp"
-        android:layout_height="363dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="32dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/main_menu_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_menu_toolbar">
@@ -20,32 +38,44 @@
             android:id="@+id/main_menu_specific"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="showList"
             android:text="@string/main_menu_specific_theme"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/main_menu_tooltip_specific_theme" />
 
         <Button
             android:id="@+id/main_menu_example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="startExam"
             android:text="@string/main_menu_example_test"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/main_menu_tooltip_example_test" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="startExtraTraining"
             android:text="@string/main_menu_learn_wrong_answered_questions"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/main_menu_tooltip_learn_wrong_answered_questions" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="openPersonalizedLearnSettings"
             android:text="@string/main_menu_personalize"
+            android:textColor="@color/text"
+            android:textSize="20sp"
             android:tooltipText="@string/main_menu_tooltip_personalize"
             android:visibility="visible" />
 
@@ -53,8 +83,11 @@
             android:id="@+id/button12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:text="Button"
+            android:textColor="@color/text"
             android:visibility="invisible" />
+
     </LinearLayout>
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -62,12 +95,25 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/lightgrey"
         android:minHeight="?attr/actionBarSize"
         android:textAlignment="center"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="@color/white">
+
+
+        <TextView
+            android:id="@+id/custom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THW Theorie"
+            android:textColor="@color/text"
+            android:textSize="25sp"
+             />
+    </com.google.android.material.appbar.MaterialToolbar>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

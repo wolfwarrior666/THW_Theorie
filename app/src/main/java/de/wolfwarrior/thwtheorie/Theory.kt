@@ -32,6 +32,9 @@ class Theory : AppCompatActivity() {
     private var onCreated = false
     private var theme = -1
 
+    //Questionnaire
+    private lateinit var questionnaire:String
+
     //UIElemente
     private lateinit var answerA: CheckBox
     private lateinit var answerB: CheckBox
@@ -39,9 +42,12 @@ class Theory : AppCompatActivity() {
     private lateinit var questionText: TextView
     private lateinit var button: Button
     private lateinit var progressBar: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
+
+        loadQuestionnaire() //Load selected_questionnaire from Storage
 
         theme = intent.getIntExtra("Theme", -1)
 
@@ -98,17 +104,29 @@ class Theory : AppCompatActivity() {
 
     }
 
-    fun loadQuestionsData(): List<Question> {
-        val test = resources.openRawResource(R.raw.questions_2022).bufferedReader()
-            .use { it.readText() }//R.raw.questions_2022
+    fun loadQuestionnaire(){
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        questionnaire = sharedPreference.getString("selected_questionnaire", "null").toString()
+    }
 
-        return Json.decodeFromString(test)
+    fun loadQuestionsData(): List<Question> {
+        var rawData = if(questionnaire == "questions_2022_3_4"){
+             resources.openRawResource(R.raw.questions_2022_3_4).bufferedReader()
+                .use { it.readText() }//R.raw.questions_2022
+        } else {
+
+        }
+
+        /*rawData = resources.openRawResource(R.raw.questions_2022_3_4).bufferedReader()
+            .use { it.readText() } R.raw.questions_2022*/
+
+        return Json.decodeFromString(rawData.toString())
 
     }
 
     fun loadLearnState(): HashMap<String, Int> {
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val learnState = sharedPreference.getString("learnstate", "null")
+        val learnState = sharedPreference.getString("$questionnaire", "null")
         if (learnState.equals("null")) {
             return HashMap()
         }
@@ -137,43 +155,55 @@ class Theory : AppCompatActivity() {
         //Was passiert wenn es falsch ist
         if (answerA.isChecked == question.answerA.rightOrWrong) {
             if (question.answerA.rightOrWrong) {
-                answerA.setBackgroundColor(Color.GREEN) //Wenn alles Richtig ist Grün
+                //answerA.setBackgroundColor(Color.GREEN) //Wenn alles Richtig ist Grün
+                answerA.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
-                answerA.setBackgroundColor(Color.TRANSPARENT) //Wenn antwort wie gewünscht nicht gewählt wurde
+                //answerA.setBackgroundColor(Color.TRANSPARENT)
+                answerA.setBackgroundResource(R.drawable.rounded_checkbox)//Wenn antwort wie gewünscht nicht gewählt wurde
             }
         } else {
             if (question.answerA.rightOrWrong) {
-                answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht markiert sollte es aber sein
+                //answerA.setBackgroundColor(Color.GREEN) //Antwort war nicht markiert sollte es aber sein
+                answerA.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
-                answerA.setBackgroundColor(Color.RED) //Antwort war falsch markiert
+                //answerA.setBackgroundColor(Color.RED) //Antwort war falsch markiert
+                answerA.setBackgroundResource(R.drawable.rounded_checkbox_red)
             }
         }
 
         if (answerB.isChecked == question.answerB.rightOrWrong) {
             if (question.answerB.rightOrWrong) {
-                answerB.setBackgroundColor(Color.GREEN)
+                //answerB.setBackgroundColor(Color.GREEN)
+                answerB.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
                 answerB.setBackgroundColor(Color.TRANSPARENT)
+                answerB.setBackgroundResource(R.drawable.rounded_checkbox)
             }
         } else {
             if (question.answerB.rightOrWrong) {
-                answerB.setBackgroundColor(Color.GREEN)
+                //answerB.setBackgroundColor(Color.GREEN)
+                answerB.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
-                answerB.setBackgroundColor(Color.RED)
+                //answerB.setBackgroundColor(Color.RED)
+                answerB.setBackgroundResource(R.drawable.rounded_checkbox_red)
             }
         }
 
         if (answerC.isChecked == question.answerC.rightOrWrong) {
             if (question.answerC.rightOrWrong) {
-                answerC.setBackgroundColor(Color.GREEN)
+                //answerC.setBackgroundColor(Color.GREEN)
+                answerC.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
-                answerC.setBackgroundColor(Color.TRANSPARENT)
+                //answerC.setBackgroundColor(Color.TRANSPARENT)
+                answerC.setBackgroundResource(R.drawable.rounded_checkbox)
             }
         } else {
             if (question.answerC.rightOrWrong) {
-                answerC.setBackgroundColor(Color.GREEN)
+                //answerC.setBackgroundColor(Color.GREEN)
+                answerC.setBackgroundResource(R.drawable.rounded_checkbox_green)
             } else {
-                answerC.setBackgroundColor(Color.RED)
+                //answerC.setBackgroundColor(Color.RED)
+                answerC.setBackgroundResource(R.drawable.rounded_checkbox_red)
             }
         }
     }
@@ -186,9 +216,12 @@ class Theory : AppCompatActivity() {
         answerC.text = question.answerC.answer.trimIndent()
         questionText.text = question.question.trimIndent()
 
-        answerA.setBackgroundColor(Color.TRANSPARENT)
-        answerB.setBackgroundColor(Color.TRANSPARENT)
-        answerC.setBackgroundColor(Color.TRANSPARENT)
+        answerA.setBackgroundResource(R.drawable.rounded_checkbox)
+        answerB.setBackgroundResource(R.drawable.rounded_checkbox)
+        answerC.setBackgroundResource(R.drawable.rounded_checkbox)
+        //answerA.setBackgroundColor(Color.TRANSPARENT)
+        //answerB.setBackgroundColor(Color.TRANSPARENT)
+        //answerC.setBackgroundColor(Color.TRANSPARENT)
 
         answerA.isChecked = false
         answerB.isChecked = false
