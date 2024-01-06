@@ -32,6 +32,9 @@ class Theory : AppCompatActivity() {
     private var onCreated = false
     private var theme = -1
 
+    //Questionnaire
+    private lateinit var questionnaire:String
+
     //UIElemente
     private lateinit var answerA: CheckBox
     private lateinit var answerB: CheckBox
@@ -39,9 +42,12 @@ class Theory : AppCompatActivity() {
     private lateinit var questionText: TextView
     private lateinit var button: Button
     private lateinit var progressBar: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theory)
+
+        loadQuestionnaire() //Load selected_questionnaire from Storage
 
         theme = intent.getIntExtra("Theme", -1)
 
@@ -98,17 +104,29 @@ class Theory : AppCompatActivity() {
 
     }
 
-    fun loadQuestionsData(): List<Question> {
-        val test = resources.openRawResource(R.raw.questions_2022).bufferedReader()
-            .use { it.readText() }//R.raw.questions_2022
+    fun loadQuestionnaire(){
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        questionnaire = sharedPreference.getString("selected_questionnaire", "null").toString()
+    }
 
-        return Json.decodeFromString(test)
+    fun loadQuestionsData(): List<Question> {
+        var rawData = if(questionnaire == "questions_2022_3_4"){
+             resources.openRawResource(R.raw.questions_2022_3_4).bufferedReader()
+                .use { it.readText() }//R.raw.questions_2022
+        } else {
+
+        }
+
+        /*rawData = resources.openRawResource(R.raw.questions_2022_3_4).bufferedReader()
+            .use { it.readText() } R.raw.questions_2022*/
+
+        return Json.decodeFromString(rawData.toString())
 
     }
 
     fun loadLearnState(): HashMap<String, Int> {
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val learnState = sharedPreference.getString("learnstate", "null")
+        val learnState = sharedPreference.getString("$questionnaire", "null")
         if (learnState.equals("null")) {
             return HashMap()
         }
