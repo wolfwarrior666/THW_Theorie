@@ -4,7 +4,6 @@
 Eine einfache App zum lernen der THW Theorie für die GA (GrundAusbildung). Derzeitiger Fragenkatalog 2022 3.4.
 
 ## Wähle aus vier Lernmodie
-Wähle wie du lernen Willst
 
 <div align="left">
 <img alt='Main Menue' src='./docs/Main_menu.png' height='450px'/></a>
