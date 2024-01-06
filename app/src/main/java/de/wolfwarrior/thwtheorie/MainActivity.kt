@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
@@ -14,13 +16,40 @@ import kotlinx.serialization.json.Json
 
 
 class MainActivity : AppCompatActivity() {
+    private val questionnaires: List<String> = listOf("Fragebogen: 2022","2023","2024")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.main_menu_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        //Spinner
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,questionnaires)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        val spinner:Spinner = findViewById(R.id.main_menu_spinner)
+        spinner.adapter = adapter
+
+        /*
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                // Do something with the selected item
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle no item selected scenario
+            }
+        }*/
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
