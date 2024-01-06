@@ -18,7 +18,7 @@ import kotlinx.serialization.json.Json
 
 @Suppress("UNUSED_PARAMETER")
 class MainActivity : AppCompatActivity() {
-    private val questionnaires: List<String> = listOf("Fragebogen: 2022","2023","2024")
+    private val questionnaires: List<String> = listOf("Fragebogen: 2022")
     private lateinit var spinner:Spinner
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         spinner = findViewById(R.id.main_menu_spinner)
         spinner.adapter = adapter
+        spinner.isEnabled = false
 
     }
 
