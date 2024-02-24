@@ -4,7 +4,7 @@ package de.wolfwarrior.thwtheorie.logik
 class StdLogik : GeneralImplementationK(), TheorieLogikInterface {
     override fun getResults(): String {
         val questionCounts = wrong + right
-        return "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
+        return "Gratulation du hast den Themenabschnitt $themeID erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right Richtig und $wrong Falsch."
     }
 
     override fun loadData(chapterNumber: Int) {

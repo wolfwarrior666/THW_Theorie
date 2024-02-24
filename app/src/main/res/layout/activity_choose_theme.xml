@@ -8,104 +8,106 @@
     android:background="@color/RAL5002">
 
     <LinearLayout
-        android:layout_width="333dp"
-        android:layout_height="525dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-       >
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/choose_theme_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeOne"
             android:text="@string/choose_theme_one"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeTwo"
             android:text="@string/choose_theme_two"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeThree"
             android:text="@string/choose_theme_three"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeFour"
             android:text="@string/choose_theme_four"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeFive"
             android:text="@string/choose_theme_five"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeSix"
             android:text="@string/choose_theme_six"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeSeven"
             android:text="@string/choose_theme_seven"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeEight"
             android:text="@string/choose_theme_eight"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightgrey"
             android:onClick="themeNine"
             android:text="@string/choose_theme_nine"
             android:textColor="@color/text"
-            android:textSize="20sp"
-            android:backgroundTint="@color/lightgrey"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button11"

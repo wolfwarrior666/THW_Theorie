@@ -8,7 +8,7 @@ import de.wolfwarrior.thwtheorie.logik.TheorieLogikInterface
 class PersonalizedExtraTraningStd : GeneralImplementationK(), TheorieLogikInterface {
     override fun getResults(): String {
         val questionCounts = wrong + right
-        return "Gratulation du hast $questionCounts Fragen erfolgreich beantwortet. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
+        return "Gratulation du hast $questionCounts Fragen erfolgreich beantwortet. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right Richtig und $wrong Falsch."
 
     }
 

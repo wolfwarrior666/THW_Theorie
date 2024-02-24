@@ -5,7 +5,7 @@ import java.util.Random
 class MokExamLogik : GeneralImplementationK(), TheorieLogikInterface {
     override fun getResults(): String {
         val questionCounts = wrong + right
-        return "Gratulation du den Test erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right richtig und $wrong falsch."
+        return "Gratulation du den Test erfolgreich durchlaufen. Dabei hast du $questionCounts Fragen beantwortet, davon waren $right Richtig und $wrong Falsch."
 
     }
 
